@@ -1,0 +1,140 @@
+**purchase_list.css**
+
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.div {
+    position: relative;
+    width: 100%;
+    max-width: 1512px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    margin-top: 33px;
+    background-color: transparent;
+}
+
+.ebs-ebook-service-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ebs {
+    font-size: 48px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0;
+}
+
+.ebook-service {
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+}
+
+.cilbook-icon {
+    width: 42px;
+    height: 46px;
+    margin-left: 20px;
+}
+
+.child {
+    width: 100%;
+    height: 5px;
+    background-color: #7a7a7a;
+    margin: 40px 0;
+}
+
+.div1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.div2, .div8 {
+    width: 80%;
+    max-width: 1223px;
+    margin: 0 auto 50px;
+    border: 2px solid #7a7a7a;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.component-1 {
+    position: relative;
+    background-color: #ffffff;
+}
+
+.component-1-child {
+    height: 147px;
+    margin-bottom: 20px;
+}
+
+.div3 {
+    font-size: 32px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.div4, .div5 {
+    font-size: 32px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.rectangle-parent, .rectangle-group {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+}
+
+.group-child, .group-inner, .group-item {
+    width: 242px;
+    height: 102px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.group-child {
+    background-color: #bd8d8d;
+}
+
+.group-inner {
+    background-color: #adaaaa;
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.group-item {
+    background-color: #8dbd9a;
+}
+
+.div6, .detailCheck {
+    font-size: 36px;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.div6:hover, .detailCheck:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

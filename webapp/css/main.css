@@ -1,0 +1,39 @@
+/* main.css */
+.book-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+}
+
+.book-image img {
+	width: 100%;
+	height: auto;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.author {
+	color: #555;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.detail-view-link,
+.add-to-cart-btn {
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.detail-view-link:hover,
+.add-to-cart-btn:hover {
+	background-color: #ddd;
+}

@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px auto;
+    position: relative;
+    top: 50px; /* 상단 바와의 간격 조정 */
+}
+
+.product-details h1 {
+    text-align: center;
+    color: #333333;
+}
+
+.book-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.book-info img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.book-details {
+    flex: 1;
+}
+
+.book-details h2 {
+    margin: 0 0 10px 0;
+    color: #333333;
+}
+
+.book-details p {
+    margin: 5px 0;
+    color: #555555;
+}
+
+.book-details .price {
+    color: #22a722;
+    font-weight: bold;
+}
+
+.basket img {
+    width: 50px;
+    height: auto;
+}
+
+.line-separator {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.line-separator img {
+    width: 100%;
+    height: auto;
+}
+
+.book-description {
+    margin-top: 20px;
+    color: #555555;
+    line-height: 1.6;
+}
