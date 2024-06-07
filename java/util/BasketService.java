@@ -48,29 +48,4 @@ public class BasketService {
 		}
 		return false;
 	}
-	
-	//basket 수정
-	//stored procedure, If
-	//basket에 (user_id, product_id) 없으면 삽입.
-	//basket에 (user_id, product_id) 있으면 삭제.
-	public static boolean updateBasket(String userId, String productId, boolean inBasket) {
-		String query = "{CALL update_basket(?, ?, ?)}";
-		boolean result = false;
-		
-		try (Connection connection = DatabaseUtil.getConnection();
-				CallableStatement cstmt = connection.prepareCall(query);
-			){
-			cstmt.setString(1, userId);
-			cstmt.setInt(2, Integer.parseInt(productId));
-			cstmt.setInt(3, inBasket?1:0);
-			result = (cstmt.executeUpdate() > 0);
-
-			DatabaseUtil.closeConnection();
-			return result;
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-			return result;
-		}
-	}
 }

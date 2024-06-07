@@ -94,22 +94,22 @@
 }
 
 .cart-btn {
-	display: flex;
-	justify-content: center;
-	margin: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
 }
 
 .cart-btn button {
-	padding: 10px;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	cursor: pointer;
-	border-radius: 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.cart-btn button.disabled {
-	background-color: #ccc;
-	color: #666;
-	cursor: not-allowed;
+div.cart-btn button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
 }

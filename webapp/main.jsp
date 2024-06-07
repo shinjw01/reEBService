@@ -8,15 +8,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EBS | 상품리스트</title>
+        <link rel="stylesheet" href="./css/main.css" />
+    
     <link rel="stylesheet" href="./css/book-list.css" />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <style></style>
 </head>
 <body>
     <%@include file="top.jsp"%>
 
-    <!-- 도서 리스트 (추후 리팩터링) -->
     <main class="book-list">
     <%
     	String userId = null;
@@ -39,19 +38,19 @@
                 <p class="author"><%= product.getAuthor() %></p>
                 <div class="btn-container">
                     <div class="detail-btn">
-                        <button class="detail-view-link" >상세보기</button>
+                        <button class="detail-view-link">상세보기</button>
                     </div>
                     <div class="cart-btn">
                     <% if (userId == null) {%>
-                    <button disabled>로그인 후 이용</button>
-                	<% } 
+                        <button class="cart-btn" disabled>로그인 후 이용</button>
+                    <% } 
                        else if (BasketService.isInHistory(userId, product.getId())) { %>
-                           <button disabled>구매 완료</button>
+                        <button class="cart-btn" disabled>구매 완료</button>
                        <% } else if (BasketService.isInBasket(userId, product.getId())) { %>
-                            <button disabled>장바구니에 있음</button>
+                        <button class="cart-btn" disabled>장바구니에 있음</button>
                        <% } else { %>
-                            <button class="add-to-cart-btn" data-action="add">장바구니 담기</button>
-                       <% }%>
+                        <button class="cart-btn add-to-cart-btn" data-action="add">장바구니 담기</button>
+                       <% } %>
                     </div>
                 </div>
             </div>
@@ -71,6 +70,14 @@
 	<div class="notification" id="notification-failed">장바구니에 이미 있습니다</div>
     <!-- 자바스크립트  -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const disabledButtons = document.querySelectorAll("button:disabled");
+    disabledButtons.forEach((button) => {
+        button.style.backgroundColor = '#ccc';
+        button.style.color = '#666';
+        button.style.cursor = 'not-allowed';
+    });
+});
 document.addEventListener("DOMContentLoaded", function () {
     const cartButtons = document.querySelectorAll(".add-to-cart-btn");
     const notification_success = document.getElementById("notification-success");

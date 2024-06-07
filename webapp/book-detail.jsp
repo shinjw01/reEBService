@@ -53,7 +53,7 @@ if (product == null) {
                         alt="shopping-cart-icon"
                         class="shopping-cart-icon"
                     />
-                    <p>장바구니 취소</p>
+                    <p>장바구니에 이미 담긴 상품입니다.</p>
                 <% } else { %>
                     <img
                         src="<%= request.getContextPath() %>/src/empty_basket.png"
@@ -81,9 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const userId = button.dataset.userId;
             const icon = button.querySelector(".shopping-cart-icon");
             const currentIconSrc = icon.src.split('/').pop();
-            const action = currentIconSrc === "empty_basket.png" ? "add" : "remove";
             
-            const url = action === "add" ? 'cart_insert.jsp' : 'cart_delete.jsp';
+            const url = 'cart_insert.jsp';
             const formData = new URLSearchParams();
             formData.append('product_id', productId);
             formData.append('user_id', userId);
@@ -99,16 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // 서버에서 반환된 메시지를 기반으로 이미지 업데이트
                 if (text.includes("성공적으로")) {
-                    if (action === "add") {
-                        icon.src = "<%= request.getContextPath() %>/src/full_basket.png";
-                        button.querySelector("p").textContent = "장바구니 취소";
-                    } else {
-                        icon.src = "<%= request.getContextPath() %>/src/empty_basket.png";
-                        button.querySelector("p").textContent = "장바구니 담기";
-                    }
+                	icon.src = "<%= request.getContextPath() %>/src/full_basket.png";
+                    button.querySelector("p").textContent = "장바구니에 이미 담긴 상품입니다.";
                 } else {
-                    console.error('Error:', text);
-                    alert('장바구니 업데이트 중 오류가 발생했습니다.');
+                    alert('장바구니에 이미 담긴 상품입니다.');
                 }
             } catch (error) {
                 console.error('Error:', error);

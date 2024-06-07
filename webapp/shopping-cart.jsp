@@ -126,7 +126,7 @@
 				</div>
 	            <div class="book-img">
 	                <img
-	                    src="<%= request.getContextPath() %>/<%= rs.getString("product_image") %>"
+	                    src="./data/<%= rs.getString("product_image") %>"
 	                    alt="책 이미지"
 	                />
 	            </div>
