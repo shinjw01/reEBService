@@ -103,9 +103,9 @@
                 
                 
              // 서브쿼리를 사용하여 장바구니 항목과 제품 정보를 가져오기
-                String sql = "SELECT b.product_id, p.product_name, p.price, p.product_image " +
-                             "FROM BASKET b JOIN PRODUCT p ON b.product_id = p.product_id " +
-                             "WHERE b.user_id = ?";
+                String sql = "SELECT product_id, product_name, price, product_image " +
+                             "FROM PRODUCT " +
+                             "WHERE product_id IN (SELECT product_id FROM BASKET WHERE user_id = ?)";
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, s_id);
                 rs = pstmt.executeQuery();

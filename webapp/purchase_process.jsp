@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*,oracle.sql.*, oracle.jdbc.*" %>
-<%@ page import="util.*" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +26,13 @@
     CallableStatement stmt = null;
    // PreparedStatement historyStmt = null;
 
-        conn = DatabaseUtil.getConnection();
+    try {
+        Class.forName("oracle.jdbc.driver.OracleDriver"); // Oracle JDBC 드라이버 로드
+        String dbURL = "jdbc:oracle:thin:@localhost:1521:xe"; // DB URL, 포트, 서비스명 수정 필요
+        String dbUser = "db1912339";
+        String dbPassword = "oracle";
+
+        conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         
      // ODCINUMBERLIST 생성
         ArrayDescriptor descriptor = ArrayDescriptor.createDescriptor("SYS.ODCINUMBERLIST", conn);
@@ -47,7 +51,21 @@
         String resultMessage = stmt.getString(1);
         out.println(resultMessage);
         
-  
+        
+
+    } catch (SQLException se) {
+        out.println("SQL 오류: " + se.getMessage());
+    } catch (Exception e) {
+        out.println("오류: " + e.getMessage());
+    } finally {
+        try {
+        	//if (historyStmt != null) historyStmt.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
+        } catch (SQLException se) {
+            out.println("SQL 오류: " + se.getMessage());
+        }
+    }
 %>
 <script>
     alert("구매완료 되었습니다.");
@@ -55,4 +73,3 @@
 </script>
 </body>
 </html>
-<% session.invalidate(); %>

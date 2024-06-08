@@ -14,7 +14,7 @@
     <table>
         <tr>
             <td>
-                <a href="main.jsp" class="logo-link"><img src="src/logo.png" alt="logo" class="logo" /></a>
+                <a href="main.jsp" class="logo-link"><img src="./src/logo.png" alt="logo" class="logo" /></a>
                 <b><a href="my-library.jsp"><p>나의 서재</p></a></b>
                 <span class="separator">|</span>
                 <b><a href="shopping-cart.jsp"><p>장바구니</p></a></b>

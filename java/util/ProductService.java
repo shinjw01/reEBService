@@ -98,7 +98,11 @@ public class ProductService {
             product.setPublisher(callableStatement.getString(7));
             product.setProduct_image(callableStatement.getString(8));
             product.setAuthor(callableStatement.getString(9));
-
+            
+            if (product.getId().equals("0")) {
+            	product = null;
+            	}
+            
         } catch (SQLException e) {
             // SQLException Ã³¸®
             System.err.println("SQLState: " + e.getSQLState());

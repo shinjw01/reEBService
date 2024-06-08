@@ -28,7 +28,7 @@ BEGIN
     p_author := v_product.author;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
-        p_product_id := NULL;
+        p_product_id := 0;
         p_product_name := NULL;
         p_price := NULL;
         p_detail := NULL;

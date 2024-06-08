@@ -1,0 +1,117 @@
+@charset "EUC-KR";
+
+/* 장바구니 타이틀 */
+.purchase-title {
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.purchase-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px;
+}
+
+/* 장바구니 목록 */
+.purchase-list-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.purchase-list {
+	display: flex;
+	border: 1px solid violet;
+	width: 500px;
+	height: 100px;
+	padding: 20px;
+	gap: 20px;
+	position: relative;
+}
+
+.book-img > img {
+	height: 100px;
+}
+
+.book-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 20px;
+}
+
+.delete-item {
+	position: absolute;
+	right: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 40%;
+}
+.delete-item > button {
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+/* 총 금액 및 선택된 항목 목록 */
+.total-price-container {
+	border: 1px solid rgb(255, 195, 116);
+	padding: 20px;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Flexbox로 공간을 채우도록 설정 */
+	gap: 20px;
+}
+
+.total-price-title {
+	font-size: 20px;
+}
+
+.total-price-title > span {
+	color: red;
+}
+
+.selected-items-container {
+	margin-top: 20px;
+}
+
+.selected-items-container h4 {
+	margin: 0 0 10px 0;
+	font-size: 18px;
+}
+
+.selected-items-container ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.selected-items-container li {
+	margin-bottom: 5px;
+	font-size: 16px;
+}
+
+/* 결제하기 버튼 */
+.go-to-payment {
+	margin-top: auto; /* 버튼을 컨테이너 맨 아래로 위치시킴 */
+	text-align: center; /* 버튼을 가운데 정렬 */
+}
+
+.go-to-payment > button {
+	padding: 10px 20px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.go-to-payment > button:hover {
+	background-color: #45a049;
+}

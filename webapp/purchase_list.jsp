@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
-<%@ page import="util.*" %>
-
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
 </head>
 <body>
+<%@include file="top.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 function handleRefund(orderId) {
@@ -32,24 +31,30 @@ function handleRefund(orderId) {
 }
 </script>
 <div class="div">
-    <div class="header">
-        <div class="ebs-ebook-service-container">
-            <p class="ebs">EBS</p>
-            <p class="ebook-service">EBook Service</p>
-        </div>
-        <img class="cilbook-icon" alt="" src="cil:book.svg">
+   
+      
     </div>
     <div class="child"></div>
     <div class="div1">구매 내역</div>
     <div class="div2">
         <% 
             // Database connection setup
-            Connection conn = DatabaseUtil.getConnection();
+            Connection conn = null;
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            //login_verify.jsp에서 setAttribute된 이름과 같아야함.
-            String userId = (String) session.getAttribute("user");   
-            System.out.println(userId);
+            String userId = (String) session.getAttribute("user");
+            //String userId = "JH1234"; // This should be set from session or another method
+            if (userId == null) {
+                out.println("<p>로그인이 필요합니다.</p>");
+                return;
+            }
+
+            try {
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
+                String dbUser = "db1912339";
+                String dbPassword = "oracle";
+                conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 
                 // SQL Query
                 String sql = "SELECT h.order_id, LISTAGG(p.product_name, ' + ') WITHIN GROUP (ORDER BY p.product_name) AS product_names, SUM(p.price) AS total_price, h.status_name FROM HISTORY h JOIN PRODUCT p ON h.product_id = p.product_id WHERE h.user_id = ? GROUP BY h.order_id, h.status_name";
@@ -88,8 +93,17 @@ function handleRefund(orderId) {
         </div>
         <% 
                 }
+            } catch (SQLException se) {
+                out.println("SQL 오류: " + se.getMessage());
+            } catch (Exception e) {
+                out.println("오류: " + e.getMessage());
+            } finally {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            }
         %>
-    </div>
+   
 </div>
 </body>
 </html>
