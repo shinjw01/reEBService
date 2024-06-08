@@ -6,8 +6,8 @@
 <head>
     <title>EBS | 구매내역</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/purchase_list.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/purchase_list.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
 </head>
 <body>

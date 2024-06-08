@@ -10,6 +10,15 @@
 <title>EBS | 장바구니</title>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/shopping-cart.css" />
+<%	//session 확인
+String userId = (String) session.getAttribute("user");
+
+if (userId == null){%>
+<script type="text/javascript">
+    alert("로그인 후 이용하세요.");
+    window.location.href = "login.jsp";
+</script>
+<%} %>
 <script>
     let selectedItems = [];
     let totalPrice = 0;

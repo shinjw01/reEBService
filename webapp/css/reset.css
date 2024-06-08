@@ -102,6 +102,9 @@ section {
 }
 body {
 	line-height: 1;
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
 }
 ol,
 ul {

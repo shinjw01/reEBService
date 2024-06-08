@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EBS | 상품리스트</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/book-detail.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/reset.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/global.css" />
+    <title>EBS | 상품상세정보</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/book-detail.css?after" />
 </head>
-<%@include file="top.jsp"%>
 <body>
+<%@include file="top.jsp"%>
 <%
 String userId = null;
 Object userObject = session.getAttribute("user");
@@ -40,7 +40,8 @@ if (product == null) {
             <div class="book-title"><%= product.getName() %></div>
             <div class="book-author"><%= product.getAuthor() %></div>
             <div class="book-publisher"><%= product.getPublisher() %></div>
-            <div class="book-price"><%= product.getPrice() %>원</div>
+            <% long price = (long) Math.floor(product.getPrice()); %>
+            <div class="book-price"><%= price %>원</div>
             <div class="add-to-cart">
                 <button class="add-to-cart-button" data-product-id="<%= product.getId() %>" data-user-id="<%= userId %>">
                 <% if (userId == null) { %>

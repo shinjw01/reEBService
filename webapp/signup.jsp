@@ -23,7 +23,6 @@
                             id="name"
                             maxlength="10"
                             placeholder="10글자 이내 한글로 작성해주세요."
-                            onblur="validateName()"
                             oninput="validateForm()"
                         />
                         <span id="nameCheck"></span>
@@ -191,7 +190,7 @@
             validateForm();  // 폼 전체 유효성 검사
         }
 
-        // 아이디 중복 확인
+     // 아이디 중복 확인
         function checkIdDuplication() {
             const userId = document.getElementById("id").value;
             if (userId === "") {
@@ -204,17 +203,23 @@
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    if (response.isAvailable) {
-                        alert(response.message);
-                        document.getElementById("id").dataset.checked = "true";
-                        document.getElementById("idCheck").innerText = "중복 확인이 완료되었습니다!";
-                    } else {
-                        alert(response.message);
-                        document.getElementById("id").dataset.checked = "";
-                        document.getElementById("idCheck").innerText = response.message;
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        console.log(response);
+                        if (response.isAvailable) {
+                            alert(response.message);
+                            document.getElementById("id").dataset.checked = "true";
+                            document.getElementById("idCheck").innerText = "중복 확인이 완료되었습니다!";
+                        } else {
+                            alert(response.message);
+                            document.getElementById("id").dataset.checked = "";
+                            document.getElementById("idCheck").innerText = response.message;
+                        }
+                        validateForm();  // 폼 전체 유효성 검사
+                    } catch (e) {
+                        console.error("JSON parse error:", e);
+                        alert("서버 응답 처리 중 오류가 발생했습니다.");
                     }
-                    validateForm();  // 폼 전체 유효성 검사
                 }
             };
             xhr.send("check_id=true&user_id=" + encodeURIComponent(userId));

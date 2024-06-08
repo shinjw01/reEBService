@@ -6,20 +6,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EBS | 메인 페이지</title>
-    <link rel="stylesheet" href="./css/top.css" />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/top.css?after" />
 </head>
 <body>
     <table>
         <tr>
             <td>
-                <a href="main.jsp" class="logo-link"><img src="./src/logo.png" alt="logo" class="logo" /></a>
+                <a href="main.jsp" class="logo-link"><img src="src/logo.png" alt="logo" class="logo" /></a>
                 <b><a href="my-library.jsp"><p>나의 서재</p></a></b>
                 <span class="separator">|</span>
                 <b><a href="shopping-cart.jsp"><p>장바구니</p></a></b>
                 <span class="separator">|</span>
-                <b><a href="purchase-history.jsp"><p>구매내역</p></a></b>
+                <b><a href="purchase_list.jsp"><p>구매내역</p></a></b>
                 <span class="separator">|</span>
                 <b><a id="login-link" href="#" onclick="loginClicked()"><p><%= session.getAttribute("isLoggedIn") != null ? "로그아웃" : "로그인" %></p></a></b>
                 <div class="member-info">

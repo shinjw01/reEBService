@@ -24,7 +24,7 @@ if (userId == null){%>
     alert("로그인 후 이용하세요.");
     window.location.href = "login.jsp";
 </script>
-<%} %>
+<%} else{%>
     <h2 class="my-library-title">나의 서재</h2>
     <p class="my-library-description">구매한 도서 목록을 확인해보세요</p>
 
@@ -32,7 +32,7 @@ if (userId == null){%>
     <main class="book-list">
     <%//저장프로시저 : 상품id=>주소, 상품명, 저자명, 이미지 경로=>null처리
     	List<PurchasedProduct> productList = ProductService.getUserProducts(userId);
-        if (productList != null) {
+        if (productList != null ) {
         	for (PurchasedProduct product : productList) {
         %>
             <div class="book-container"
@@ -54,6 +54,7 @@ if (userId == null){%>
             else {%>
             		<div> 구매한 책이 없습니다. </div>
                 <%}
+}
                 %>
     </main>
         <script>
