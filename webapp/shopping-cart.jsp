@@ -135,7 +135,7 @@ if (userId == null){%>
 				</div>
 	            <div class="book-img">
 	                <img
-	                    src="./data/<%= rs.getString("product_image") %>"
+	                    src="./data<%= rs.getString("product_image") %>"
 	                    alt="책 이미지"
 	                />
 	            </div>
@@ -153,7 +153,6 @@ if (userId == null){%>
 	        <% 
 		            }
                     
-                	rs.close();
                 	rs.close();
                 if (!hasResults) {
                     out.println("<p>장바구니가 비었습니다.</p>");

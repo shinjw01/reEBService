@@ -18,6 +18,7 @@
 <%
     String itemsParam = request.getParameter("products");
     if (itemsParam != null && !itemsParam.isEmpty()) {
+    	long totalPrice = 0;
         String[] productIdsStr = itemsParam.split(",");
         int[] productIds = new int[productIdsStr.length];
         for (int i = 0; i < productIdsStr.length; i++) {
@@ -45,10 +46,11 @@
                 rs = pstmt.executeQuery();
 
                 if (rs.next()) {
+                	totalPrice += rs.getDouble("price");
 %>
                     <div class="purchase-list">
                         <div class="book-img">
-                            <img src="<%= request.getContextPath() %>/<%= rs.getString("product_image") %>" alt="책 이미지"/>
+                            <img src="<%= request.getContextPath() %>/data<%= rs.getString("product_image") %>" alt="책 이미지"/>
                         </div>
                         <div class="book-info">
                             <div class="book-title"><%= rs.getString("product_name") %></div>
@@ -66,18 +68,14 @@
 %>
         <!-- 총 금액 및 선택된 항목 목록 -->
         <div class="total-price-container">
-            <h3 class="total-price-title">총 금액: <span id="total-price">0원</span></h3>
-            <div class="selected-items-container">
-                <h4>선택된 항목:</h4>
-                <ul id="selected-items"></ul>
-            </div>
+            <h3 class="total-price-title">총 금액: <span id="total-price"><%= totalPrice %>원</span></h3>
             <!-- 결제하러 가기 버튼 -->
             <div class="go-to-payment">
                 <%
                     // 배열을 문자열로 변환하여 URL 파라미터로 넘기기
                     String productsParam = String.join(",", productIdsStr);
                 %>
-                <a href="purchase_list.jsp?products=<%= productsParam %>">신청</a>
+                <a href="purchase_process.jsp?products=<%= productsParam %>">신청</a>
             </div>
         </div>
 <%

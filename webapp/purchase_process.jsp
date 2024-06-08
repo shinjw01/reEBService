@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-    String userId = request.getParameter("userId");
+    String userId = (String) session.getAttribute("user");
     String itemsParam = request.getParameter("products");
 
     if (userId == null || itemsParam == null) {
@@ -38,7 +38,7 @@
         ArrayDescriptor descriptor = ArrayDescriptor.createDescriptor("SYS.ODCINUMBERLIST", conn);
         ARRAY productArray = new ARRAY(descriptor, conn, productIds);
 
-        String sql = "{call purchase_products(?, ?)}";
+        String sql = "{? = call purchase_products(?, ?)}";
         stmt = conn.prepareCall(sql);
         stmt.registerOutParameter(1, Types.VARCHAR); // 반환 값
         stmt.setString(2, userId);
@@ -49,7 +49,7 @@
         stmt.execute();
 
         String resultMessage = stmt.getString(1);
-        out.println(resultMessage);
+        System.out.println(resultMessage);
         
         
 
@@ -68,7 +68,7 @@
     }
 %>
 <script>
-    alert("구매완료 되었습니다.");
+    alert("구매완료되었습니다.");
     location.href="purchase_list.jsp";
 </script>
 </body>

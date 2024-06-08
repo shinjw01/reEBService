@@ -47,10 +47,11 @@ BEGIN
         -- 트랜잭션 커밋을 위해 주문 ID 먼저 생성
         SELECT HISTORY_SEQ.NEXTVAL INTO v_order_id FROM DUAL;
 
-        -- history 테이블에 제품 값 삽입
+        -- history 테이블에 제품 값 삽입 & basket 테이블에서 삭제
         FOR i IN 1 .. p_product_ids.COUNT LOOP
             INSERT INTO HISTORY (order_id, product_id, user_id, created_date, status_name) 
             VALUES (v_order_id, p_product_ids(i), p_user_id, SYSTIMESTAMP, '구매');
+            DELETE FROM BASKET WHERE user_id = p_user_id AND product_id = p_product_ids(i);
         END LOOP;
 
         COMMIT;

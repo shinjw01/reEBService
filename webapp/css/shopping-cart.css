@@ -1,6 +1,6 @@
 @charset "EUC-KR";
 
-/* Àå¹Ù±¸´Ï Å¸ÀÌÆ² */
+/* ìž¥ë°”êµ¬ë‹ˆ íƒ€ì´í‹€ */
 .purchase-title {
 	padding: 20px;
 	font-size: 30px;
@@ -16,7 +16,7 @@
 	padding: 20px;
 }
 
-/* Àå¹Ù±¸´Ï ¸ñ·Ï */
+/* ìž¥ë°”êµ¬ë‹ˆ ëª©ë¡ */
 .purchase-list-container {
 	display: flex;
 	flex-direction: column;
@@ -45,7 +45,6 @@
 }
 
 .delete-item {
-	position: absolute;
 	right: 30px;
 	display: flex;
 	justify-content: center;
@@ -57,14 +56,14 @@
 	cursor: pointer;
 }
 
-/* ÃÑ ±Ý¾× ¹× ¼±ÅÃµÈ Ç×¸ñ ¸ñ·Ï */
+/* ì´ ê¸ˆì•¡ ë° ì„ íƒëœ í•­ëª© ëª©ë¡ */
 .total-price-container {
 	border: 1px solid rgb(255, 195, 116);
 	padding: 20px;
 	width: 300px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between; /* Flexbox·Î °ø°£À» Ã¤¿ìµµ·Ï ¼³Á¤ */
+	justify-content: space-between; /* Flexboxë¡œ ê³µê°„ì„ ì±„ìš°ë„ë¡ ì„¤ì • */
 	gap: 20px;
 }
 
@@ -96,10 +95,10 @@
 	font-size: 16px;
 }
 
-/* °áÁ¦ÇÏ±â ¹öÆ° */
+/* ê²°ì œí•˜ê¸° ë²„íŠ¼ */
 .go-to-payment {
-	margin-top: auto; /* ¹öÆ°À» ÄÁÅ×ÀÌ³Ê ¸Ç ¾Æ·¡·Î À§Ä¡½ÃÅ´ */
-	text-align: center; /* ¹öÆ°À» °¡¿îµ¥ Á¤·Ä */
+	margin-top: auto; /* ë²„íŠ¼ì„ ì»¨í…Œì´ë„ˆ ë§¨ ì•„ëž˜ë¡œ ìœ„ì¹˜ì‹œí‚´ */
+	text-align: center; /* ë²„íŠ¼ì„ ê°€ìš´ë° ì •ë ¬ */
 }
 
 .go-to-payment > button {
