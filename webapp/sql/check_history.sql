@@ -7,7 +7,7 @@ IS
     CURSOR history_cursor IS
         SELECT 1
         FROM HISTORY
-        WHERE user_id = u_id AND product_id = p_id;
+        WHERE user_id = u_id AND product_id = p_id and status_name = '±¸¸Å';
     v_dummy NUMBER;
 BEGIN
     OPEN history_cursor;

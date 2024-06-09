@@ -13,12 +13,13 @@ BEGIN
     WHERE product_id = insert_into_cart.p_id
     AND user_id = insert_into_cart.s_id;
 
-    -- history 테이블에 주어진 p_id와 s_id가 존재하는지 확인
+    -- history 테이블에 주어진 p_id와 s_id가 존재하고, status_name='구매'인지 확인
     SELECT COUNT(*)
     INTO v_count_purchase
     FROM HISTORY
     WHERE product_id = insert_into_cart.p_id
-    AND user_id = insert_into_cart.s_id;
+    AND user_id = insert_into_cart.s_id
+    AND status_name = '구매';
 
     -- 이미 구매한 상품인지 확인
     IF v_count_purchase > 0 THEN

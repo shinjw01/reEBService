@@ -48,11 +48,27 @@ BEGIN
         SELECT HISTORY_SEQ.NEXTVAL INTO v_order_id FROM DUAL;
 
         -- history 테이블에 제품 값 삽입 & basket 테이블에서 삭제
-        FOR i IN 1 .. p_product_ids.COUNT LOOP
-            INSERT INTO HISTORY (order_id, product_id, user_id, created_date, status_name) 
-            VALUES (v_order_id, p_product_ids(i), p_user_id, SYSTIMESTAMP, '구매');
-            DELETE FROM BASKET WHERE user_id = p_user_id AND product_id = p_product_ids(i);
-        END LOOP;
+		FOR i IN 1 .. p_product_ids.COUNT LOOP
+    		-- history 테이블에 이미 존재하는지 확인
+    		SELECT COUNT(*) INTO v_order_id
+    	FROM HISTORY
+    		WHERE user_id = p_user_id AND product_id = p_product_ids(i);
+    
+    		IF v_order_id > 0 THEN
+        		-- 존재하면 status_name, created_date, v_order_id 업데이트
+       		 UPDATE HISTORY
+        		SET status_name = '구매', created_date = SYSTIMESTAMP, order_id = v_order_id
+        		WHERE user_id = p_user_id AND product_id = p_product_ids(i);
+    		ELSE
+        		-- 존재하지 않으면 삽입
+        		INSERT INTO HISTORY (order_id, product_id, user_id, created_date, status_name) 
+        		VALUES (HISTORY_SEQ.NEXTVAL, p_product_ids(i), p_user_id, SYSTIMESTAMP, '구매');
+    		END IF;
+
+    		-- basket 테이블에서 삭제
+    		DELETE FROM BASKET WHERE user_id = p_user_id AND product_id = p_product_ids(i);
+		END LOOP;
+
 
         COMMIT;
 

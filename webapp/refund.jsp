@@ -27,12 +27,10 @@
         stmt.setInt(2, Integer.parseInt(orderId));
         
         if (stmt.executeUpdate()>0){
-    		System.out.println("막자사발");
         	out.println("환불이 성공적으로 처리되었습니다.");
         }
         else{
         	out.println("환불이 실패하였습니다.");
-        	System.out.println("환불이 실패하였습니다.");
         }
         String query = "SELECT point FROM USERS WHERE user_id = ?";
     	PreparedStatement pstmt = conn.prepareStatement(query);
