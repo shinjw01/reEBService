@@ -33,7 +33,7 @@
     if (!BasketService.isInHistory(userId, productId)){%>
     	<script>
     	alert("잘못된 접근입니다.");
-    	location.href = "book-list.jsp";
+    	location.href = "main.jsp";
     </script>
     <%}
     //상품 정보 불러오기

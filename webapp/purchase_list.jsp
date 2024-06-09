@@ -84,11 +84,13 @@ function handleRefund(orderId) {
     						<%= "구매".equals(statusName) ? "환불 요청" : "환불 완료" %>
 						</button>
                 </div>
+                <% if ("구매".equals(statusName)) {%>
                 <div class="group-item">
                     <form method="post" action="my-library.jsp">
                         <button class="detailCheck">상세 확인</button>
                     </form>
                 </div>
+                <%} %>
             </div>
         </div>
         <% 
