@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
 </head>
 <body>
-<%@include file="top.jsp"%>
+<jsp:include page="top.jsp" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 function handleRefund(orderId) {
@@ -64,6 +64,7 @@ function handleRefund(orderId) {
 
                 // Displaying each purchase
                 while (rs.next()) {
+                	int orderId = rs.getInt("order_id");
                     String productNames = rs.getString("product_names");
                     int totalPrice = rs.getInt("total_price");
                     String statusName = rs.getString("status_name");
@@ -77,12 +78,11 @@ function handleRefund(orderId) {
             <div class="div5">상태: <%= statusName %></div>
             <div class="rectangle-parent">
                 <div class="group-child">
-                    <form method="post" action="refund.jsp">
-                        <input type="hidden" name="userId" value="<%= userId %>">
-                        <input type="hidden" name="orderId" value="<%= rs.getInt("order_id") %>">
-                        
-                        <button id="refund-button-<%= rs.getInt("order_id") %>" onclick="handleRefund(<%= rs.getInt("order_id") %>);" class="div6">환불 요청</button>
-                    </form>
+						<button 
+    						id="refund-button-<%= orderId %>" 
+    						<%= "구매".equals(statusName) ? "onclick=\"handleRefund(" + orderId + ");\"" : "disabled" %>class="div6">
+    						<%= "구매".equals(statusName) ? "환불 요청" : "환불 완료" %>
+						</button>
                 </div>
                 <div class="group-item">
                     <form method="post" action="my-library.jsp">

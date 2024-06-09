@@ -25,19 +25,7 @@
                 <b><a id="login-link" href="#" onclick="loginClicked()"><p><%= session.getAttribute("isLoggedIn") != null ? "로그아웃" : "로그인" %></p></a></b>
                 <div class="member-info">
                     <span class="message" id="login-message"><%= session.getAttribute("isLoggedIn") != null ? session.getAttribute("userName") + "님, 환영합니다!" : "로그인을 해주세요" %></span>
-                    
-                    <% if (session.getAttribute("isLoggedIn")!=null){
-                    	Connection conn = DatabaseUtil.getConnection();
-                    	String query = "SELECT point FROM USERS WHERE user_id = ?";
-                    	PreparedStatement pstmt = conn.prepareStatement(query);
-                    	pstmt.setString(1, (String)session.getAttribute("user"));
-                    	ResultSet rs = pstmt.executeQuery();
-                    	if (rs.next()){%>
-                    		<span class="points" id="points-message">
-                    		<%= rs.getString("point") %>
-                    		</span>                    	<% }
-                    	DatabaseUtil.closeConnection();
-                    } %>
+                    <span class="points" id="points-message"><%= session.getAttribute("isLoggedIn") != null ? session.getAttribute("points") + " 포인트 보유" : "" %></span>
                 </div>
             </td>
         </tr>

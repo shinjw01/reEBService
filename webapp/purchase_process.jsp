@@ -51,6 +51,13 @@
         String resultMessage = stmt.getString(1);
         System.out.println(resultMessage);
         
+        String query = "SELECT point FROM USERS WHERE user_id = ?";
+    	PreparedStatement pstmt = conn.prepareStatement(query);
+    	pstmt.setString(1, (String)session.getAttribute("user"));
+    	ResultSet rs = pstmt.executeQuery();
+    	if (rs.next()){
+    		session.setAttribute("points", rs.getString("point"));
+    	}
         
 
     } catch (SQLException se) {
