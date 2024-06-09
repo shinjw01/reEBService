@@ -1,65 +1,64 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+	font-family: Arial, sans-serif;
+	background-color: #f9f9f9;
 }
 table {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border: 1px solid #0075ff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+	margin: 0 auto;
+	background-color: #ffffff;
+	border: 1px solid #0075ff;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
 }
 td {
-    text-align: center;
-    padding: 20px;
-    border-bottom: 1px solid #0075ff;
+	text-align: center;
+	padding: 20px;
+	border-bottom: 1px solid #0075ff;
 }
 td:last-child {
-    border-bottom: none;
+	border-bottom: none;
 }
 td a {
-    text-decoration: none;
-    color: #0075ff;
-    font-weight: bold;
-    display: inline-block;
-    margin: 0 20px;
-    padding: 10px 15px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    border-radius: 5px;
+	text-decoration: none;
+	color: #0075ff;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0 20px;
+	padding: 10px 15px;
+	transition: color 0.3s ease, background-color 0.3s ease;
+	border-radius: 5px;
 }
 td a p {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 td a:hover:not(.logo-link) {
-    color: #ffffff;
-    background-color: #0075ff;
+	color: #ffffff;
+	background-color: #0075ff;
 }
 .logo-link:hover {
-    color: inherit;
-    background-color: inherit;
+	color: inherit;
+	background-color: inherit;
 }
 .logo {
-    display: inline-block;
-    vertical-align: middle;
-    height: 40px;
+	display: inline-block;
+	vertical-align: middle;
+	height: 40px;
 }
 .separator {
-    color: #0075ff;
-    font-weight: bold;
+	color: #0075ff;
+	font-weight: bold;
 }
 .member-info {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 20px;
-    text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 20px;
+	text-align: left;
 }
 .message {
-    display: block;
+	display: block;
 }
 .points {
-    display: block;
-    margin-top: 5px;
+	display: block;
+	margin-top: 5px;
 }
