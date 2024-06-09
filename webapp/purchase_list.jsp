@@ -80,7 +80,7 @@ function handleRefund(orderId) {
                 <div class="group-child">
 						<button 
     						id="refund-button-<%= orderId %>" 
-    						<%= "구매".equals(statusName) ? "onclick=\"handleRefund(" + orderId + ");\"" : "disabled" %>class="div6">
+    						<%= "구매".equals(statusName) ? "onclick=\"handleRefund(" + orderId + ");\"" : "disabled" %> class="div6">
     						<%= "구매".equals(statusName) ? "환불 요청" : "환불 완료" %>
 						</button>
                 </div>
