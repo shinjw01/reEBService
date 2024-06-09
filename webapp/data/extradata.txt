@@ -1,0 +1,124 @@
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(21, '알사탕 제조법', 9000, '꽃피는 봄날, 백희나의 신작 그림책이 나왔다. “나도 마법의 알사탕 먹고 싶다…”, “동동이의 알사탕은 어떻게 만들었을까?” 《알사탕》을 읽은 독자라면 한 번쯤 생각해 보았을 것이다. 이런 간절한 바람이 작가에게 영감이 되어, 독자에게 마법처럼, 선물처럼 돌아왔다. 《알사탕》이 알사탕 ‘먹은’ 이야기였다면, 《알사탕 제조법》은 알사탕 ‘만드는’ 이야기이다. 이 책은 《알사탕》의 스핀오프로, 문방구 할아버지가 마음의 소리를 들려주는 신비한 알사탕 만드는 비법을 자세하게 알려준다. 스토리보울을 다시 열면서 펴내는 첫 작품이기도 하다. 작가는 “흰 도화지에 마음껏 그림을 그리던 어린 시절을 떠올리며, 자유로운 창작 환경을 만들고, 독자와 더 가깝게 소통하고 싶다”라며 스토리보울을 열게 된 짧은 소회를 밝혔다.', '2024-03-21', 'Storybowl', '\img\k092939512_2.jpg', '백희나');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(22, '데이터에듀 빅데이터 분석기사 실기 with Python', 26100, '본 도서는 한국데이터산업진흥원에서 실시할 예정인 『빅데이터 분석기사』 자격증을 준비하는 수험생들을 위한 도서입니다. 2014년 데이터분석 준전문가(Advanced Data Analytics semi-Professional, ADsP) 자격증 시험 시행 이후 정부 주도로 빅데이터 분야의 국가공인 자격증 신설을 준비해왔습니다. 2021년 6월부터 시행한 빅..', '2024-05-03', '데이터에듀', '\img\데이터에듀 빅데이터 분석기사 실기 with Python.jpg', '윤종식');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(23, '세스 매트리얼 - 지식 너머의 진실', 22500, '정현채, 성해영, 리처드 바크, 디팩 초프라, 루이스 L. 헤이 등 세계를 리드하는 수많은 학자들과 리더들, 그간 우리의 삶을 변화시킨 베스트셀러 작가들이 극찬한 영감의 원천 ‘세스’의 사상과 지식을 담은 책 <세스 매트리얼>의 최신판이 출간되었다. ‘세스’의 사상과 지식을 본격적으로 다룬 ‘세스 입문서’라 할 수 있다. 시인이자 소설가인 저자 제인 로버츠는 ‘육체를 초월한 인격적 존재’인 세스를 만나며 현실관이 완전히 바뀌었다. 1963년부터 1980년대 초반까지 저자와 그의 남편 롭은 세스와 주고받은 방대한 지식과 이야기들을 모두 기록했다.', '2024-04-24', '터닝페이지', '\img\k612939656_1.jpg', '제인 로버츠');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(24, '사람을 안다는 것', 18000, '필요한 때에 중요한 목소리를 내는 미국의 대표 저널리스트 데이비드 브룩스의 『사람을 안다는 것』이 출간되었다. 전 세계 베스트셀러 『두 번째 산』 이후로 3년 만에 펴내는 신작이다. 작가로서의 이름을 알린 『보보스』 와 『소셜애니멀』 에서 해학과 풍자를 통해 시대의 흐름을 날카롭게 포착하던 브룩스의 글쓰기는 언제부터인가 달라졌다. 인간성과 공동체의 회복에 대해, 타인과 연결되어 더불어 살아가는 삶에 대해 이야기하기 시작한 것이다. 『사람을 안다는 것』 역시 물질적 가치를 지나치게 강조하는 사회에서 정신적 기쁨에 대해 고찰하게 해주는 책이다. 작가가 꾸준히 탐구한 ‘사람과 관계’라는 화두가 이 책으로 훌륭하게 완결되었다.', '2024-04-01', '웅진지식하우스', '\img\8901280779_1.jpg', '데이비드 브룩스');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(25, 'Python', 47500, '이 책은 어떻게 하면 우리 삶에서 관계로 인한 기쁨을 만끽할 수 있을지 구체적인 방법을 제시한다. 사람을 대할 때 지극히 소극적이고 방어적이었던 브룩스는 상대방을 깊이 알게 되는 경험을 통해 조금씩 변한다. 사람을 아주 깊숙이 알아가는 일이 상대방과 나 자신의 세계를 어떻게 넓혀가는지에 대한 경험과 연구, 사례들이 다양하게 펼쳐진다. 심리학, 철학, 문학, 신경과학을 넘나들며 길어낸 통찰은 한 가지 주제에 깊게 몰두한 저자의 저력을 보여준다. 지금보다 더 나은 사람이 되길, 그리고 누군가에게 더 좋은 사람이 되길 원하는 이들에게 이 책은 완벽한 지침서가 될 것이다.', '2020-11-02', 'Davide Cicatiello', '\\img\\Python.jpg', 'Eric Chamberlin');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(26, '이건 다만 사랑의 습관', 9900, '1975년 첫 발간부터 지금까지 한국문학의 최첨단에서 평단의 주목과 대중의 호응을 동시에 받아온 창비시선이 500번을 맞아 기념시선집 『이건 다만 사랑의 습관』을 출간했다. 엮은이로는 돋보이는 감수성으로 요즘 독자의 사랑을 한몸에 받는 동시에 시에 관해서라면 눈 밝기로 정평이 난 안희연, 황인찬 두 시인이 나섰다. 401번부터 499번까지 각 시집에서 한편씩을 선정했으며, 두권을 출간한 시인의 경우 한편만을 골라 총 90편의 시가 한권으로 묶였다. 이번 시선집은 “지난 8년여 동안 전개된 창비시선의 흐름을 한 방향으로 정리하고 요약하기보다는 시인 각자의 개성을 드러내 보이는 데 역점을”(「엮은이의 말」) 두었다. 창비시선은 국내 여느 시선 시리즈보다 신구 세대가 조화롭고 시의 경향도 다채롭다. 시선집의 처음과 끝을 장식한 1948년생 김용택 시인(『울고 들어온 너에게』, 창비시선 401)과 2000년생 한재범 시인(『웃긴 게 뭔지 아세요』, 창비시선 499)만 해도 연령뿐 아니라 시어를 다루는 양상과 시를 전개하는 방식이 무척 상이한데, 400번대 창비시선은 순수/참여 같은 고루한 이분법에 갇히지 않으려는 고투가 넓혀온 시적 영토 덕분에 총천연색 스펙트럼으로 찬란하다. 이로 인해 『이건 다만 사랑의 습관』은 어느 페이지를 펼쳐도 개성 넘치는 빼어난 작품을 만끽할 수 있다. 특히 이 시선집의 진가는 처음부터 끝까지 차분히 읽어나갈 때 드러난다. 출간 순서를 최대한 따른 구성과 세심하고도 치열한 선별 과정 덕분에 이 한권만으로도 독자들은 급변하는 현재 한국시의 지형도를 가늠해볼 수 있으며, 이 시대의 감수성이 우리 시와 어떤 방식으로 조응하고 호흡하는지를 확인해볼 수 있다.', '2024-03-29', '창비', '\\img\\8936402943_1.jpg', '안희연');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(27, 'Visual QuickStart Guide', 31100, 'The quick and easy way to master Python for Internet and Intranet programming with this visual, step-by-step guide to the popular Python programming language. This guide contains cross-platform covera', '2001-10-01', 'Peachpit Press', '\\img\\Python (Visual QuickStart Guide).jpg', 'Toby Donaldson');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(28, '처음 만나는 통계와 데이터분석: R과 Python 활용', 18900, '통계와 데이터분석은 금융권 업무와 동떨어져 있고, 극소수의 사람만 알면 되는 그다지 쓸모없는 지식인 것처럼 여겨지던 때가 있었습니다. 그러나 지금은 데이터의 시대이고 빅데이터 분석과 활용이 화두가 될 정도로 상황이 많이 바뀌었습니다. 여기저기에서 통계와 데이터분석을 배우지 않으면 남들보다 뒤처질 것처럼 얘기하다 보니 왠지 꼭 배워야만 할 것 같은 분위기가..', '20240401', '한국금융연수원', '\img\처음 만나는 통계와 데이터분석: R과 Python 활용 (R과 Python 활용, 제2판).jpg', '윤정연');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(29,	'데이터베이스 SQL 프로그래밍 : MySQL 실습', '19000',	'C.J.Date의 <An Introduction to Database Systems>을 토대로 MySQL 실습 내용을 추가하여 집필된 교재다. MySQL 실습을 위해 필요한 부분만을 발췌 정리하였다. 데이터베이스 개념에 대한 설명 내용은 각종 데이터베이스 시험에 필요한 기본 지식을 모두 포함하였다. 데이터베이스 개념을 공부하면서 동시에 MySQL를 사용하여 모두 실습하여 학습할 수 있도록 구성되어 있다.',	'20220831',	'부산대학교출판문화원',	'\img\알고리즘으로 배우는 수치해석: Python 활용 (Python 활용).jpg',	'최덕기');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(30, '고백의 언어들', 19800, '우리 시대의 목회자이자 설교자, 기독교 사상가인 김기석 목사의 고별 메시지다. 오랜 세월 청파교회를 섬겨 왔고 은퇴를 앞두고 있는 그는, 코로나 팬데믹 시기에 CBS ‘잘잘법’(잘 믿고 잘 사는 법)을 비롯한 방송 및 온라인 설교를 통해 국내외 그리스도인에게 많은 위로와 희망을 주었다. 특히 그의 설교와 강연은 풀리지 않는 인생 문제로 고민하는 이들, 교회 안과 밖에서 서성이는 이들, 시대의 어둠 속에서 방황하는 이들의 막힌 숨을 틔워 주었다. 이 책에는 하나님 앞에서 진실하고 신실하고자 달음질해 온 한 고독한 구도자의 삶과 신앙이 고스란히 담겨 있다. 수많은 설교와 강연, 저술을 해온 그이지만, 이 책은 그것들과는 사뭇 성격을 달리한다. 오롯한 한국의 기독교 사상가로서 김기석의 면모가 고스란히 녹아 있기 때문이다. 김기석 목사는 43년을 목회자로 살아왔지만 하나님에 대해서는 아는 것보다 모르는 것이 훨씬 많음을 고백한다. “목회 은퇴를 앞두고 그동안 내가 만났고 지금도 여전히 만나고 있는 하나님이 어떤 분인지를 차분하게 돌아보고 싶었다. 이 책에는 아주 낯선 모습으로 다가오시는 절대 타자로서의 하나님으로부터 시작하여, 하나님과의 친밀한 사귐이 주는 기쁨과 든든함, 그리고 안다 싶은 순간 또다시 낯설어지는 하나님을 어떻게 믿어야 할지에 대한 고민이 담겨 있다."', '20240401', '복있는사람', '\img\k502939242_1.jpg', '김기석');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(31, '기초통계플러스알파', 27600, '데이터가 있는 곳에 통계가 있다! 빅데이터의 활용으로 4차 산업혁명 시대인 현대 사회에서 통계학은 필수적인 분석도구라 할 수 있다. 그러나 통계학을 배우거나 사용하려는 사람들에게는 통계학이 어렵고 진입장벽이 높다고 느껴지는 것이 일반적이다. 이 책은 통계학의 기본 개념과 용어, 통계적 사고 방법을 쉽게 받아들일 수 있게 도와주고, 통계학을 배우는 학생들의..', '20230302', '경문사', '\img\XL.jpg', '홍봉희');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(32, '삶이 흔들릴 때 뇌과학을 읽습니다', 16200, '‘뇌과학’이라고 하면 어떤 느낌이 드는가? 비밀에 둘러싸인 뇌에 대한 궁금증이 생기기도 하지만 동시에 어렵고 거부감이 들기도 할 것이다. 그런데 이 뇌 이야기로 일본을 비롯한 아시아 전역에 뇌과학 열풍을 일으킨 사람이 있다. 바로 전세계가 주목하는 젊은 뇌과학자이자 도쿄대 교수인 이케가야 유지. 그가 쓴 이 책 『삶이 흔들릴 때 뇌과학을 읽습니다』는 "뇌과학을 알려주는 책은 많지만 이토록 실용적인 책은 처음이다"라는 평가를 받으며 일본은 물론이고 한국, 중국 등 주요 서점에서 몇 달간 종합 베스트셀러 1위를 차지하며 큰 반향을 일으켰다. 그렇다면 그가 말하는 뇌과학은 무엇이 다른 걸까. 이케가야 유지는 뇌를 설명하기 위해 ‘마음’에서부터 이야기를 시작한다. 지금 당신을 마음을 괴롭게 하는 일은 무엇인가? 평화로운 일상을 보내고 있는 그 누구라도 사소한 고민 하나쯤은 품고 있을 것이다. 학업, 직장, 연애, 다이어트 하다못해 심각한 건망증까지 포함해 우리는 인생을 살아가며 이런 크고 작은 일에 부딪히고, 그럴 때마다 생각에 생각을 거듭한 끝에 나름의 결정을 내리고 행동한다. 이때 생각하고 판단하고 결정하는 과정은 모두 ‘뇌’의 작용이다. 다시 말하면 인생에서 중요한 결정을 내릴 때마다 우리는 전적으로 뇌에 의존한다는 이야기다.', '20240327', '힉스', '\img\k422939932_2.jpg', '이케가야 유지');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(33, '로봇 드림', 17820, '시체스영화제, 유럽영화상, 안시 국제애니메이션 페스티벌, 부천 국제애니메이션 페스티벌 등 여러 영화제에서 호평을 받은 <로봇 드림>의 원작인 그래픽노블 『로봇 드림』이 놀에서 출간됐다. 개와 로봇 사이를 스쳐간 찰나의 계절, 함께한 기억이 남긴 찬란한 순간들을 코끝 찡하게 그려낸 이 작품은, 한동안 절판되어 독자들의 아쉬움을 자아냈지만 14년 만에 다시 독자 앞에 서게 됐다. 대사 한 마디 없이, 둘의 사이나 상황을 설명하는 지문도 없이, 오로지 선과 면만으로 읽는 이들을 뭉클함 속으로 던져 넣은 이 책의 매력을 다시금 느껴보시기 바란다.', '20240327', '놀', '\img\k962939592_1.jpg', '사라 바론');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(34, '모모', 19800, '환상 문학의 거장 미하엘 엔데가 남긴 최고의 걸작인 『모모』는 꿈처럼 펼쳐지는 신비로운 동화의 형식을 빌려 우리가 사는 세상을 예리하게 비춰 보여 주어 『어린 왕자』의 뒤를 잇는 어른을 위한 동화라는 수식도 따라붙는다. 동화적 향수를 자아내는 환상적인 모험 이야기에는 시간과 삶, 관계에 대한 깊이 있는 통찰이 가득 담겨 세대를 막론하고 어린이와 어른 들의 마음속에 깊은 울림을 준다. 누구에게든 언제나 늘 당연하게 주어져 있는 ‘시간’이라는 잊기 쉬운 소중한 가치를 일깨우며, 한순간 한순간으로 이루어지는 우리의 ‘삶’, 그리고 그 속을 따스한 온기로 채우는 사람들 사이의 ‘관계’에 대한 가장 본질적인 진실을 들려준다. 세월이 흐를수록 발전하는 기술과 더불어 점점 더 바삐 돌아가는 현대 사회에서 자기 시간과 자기 마음의 주인으로 살아가는 길을 비춰 주는 『모모』 속에는 영원히 빛바래지 않을 삶의 진리가 담겨 앞으로도 계속해서 새로운 의미를 건네주며 우리 곁에 살아 숨 쉴 세기의 명작이다.', '20240329', '비룡소', '\img\8949139995_1.jpg', '미하엘 엔데');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(35, '일류의 조건', 17820, '《일류의 조건》이 국내 첫 출간 후 18년 만에 필름출판사에서 복간되었다. 《일류의 조건》은 일본 메이지 대학교 교수로 재직 중인 사이토 다카시의 대표작으로, 그의 저서는 국내에도 많이 소개되며, 누적 1,000만 부 이상의 판매 부수를 기록하고 있는 베스트셀러 작가이다. 이 책은 2006년 국내 출간 이후 오랜 시간 절판되어, 중고 거래를 통해 책을 구하는 사람들이 많았다. “책이 절판되어 동네 도서관에서 찾아보고 있다”, “책 읽어보고 싶은데 절판되어 구할 수가 없다”, “중고로도 구하기 어려워서 다시 출간되었으면 좋겠다” 등 연일 독자의 출간 요청이 끊이지 않고 이어져 온 책이다. 《일류의 조건》은 한 분야에 있어 통달한 전문가, 즉 ‘일류’가 되기 위해서는 근본적인 조건 세 가지인 ‘훔치는 힘’, ‘요약하는 힘’, ‘추진하는 힘’을 갖추어야 함을 전하는 실용적인 자기계발서다. 10년간 약 1만 권의 책을 읽으며 독서의 중요성을 강조하고 있는 뇌과학 전문가 박문호 박사는 그동안 읽은 자기계발서 중 단 한 권의 추천 도서로 《일류의 조건》을 꼽으며, 이 책에서 말하는 ‘일류가 되기 위한 세 가지 힘’을 강력히 추천하기도 했다. 그의 추천사 외에도 수많은 지식인들의 추천이 쏟아지고 있는 《일류의 조건》을 통해 자신을 일류로 발전시키고 싶은 사람들에게 도움을 줄 수 있길 바란다.', '20240320', '필름', '\img\k992939996_1.jpg', '사이토 다카시');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(36, '물질의 세계', 26820, '모래, 소금, 철, 구리, 석유, 리튬. 이 여섯 가지 물질은 인류 역사상 가장 중요한 물질로 암흑기에서 현대의 고도로 발달한 사회로 인간의 세계를 확장시켰다. 컴퓨터와 스마트폰에 전력을 공급하고, 집과 빌딩을 지으며, 생명을 구하는 의약품을 만들지만 우리 대부분은 이 물질이 무엇인지, 우리 삶에 어떤 영향을 미치고 있는지 알지 못한다. 《물질의 세계》 저자이자 영국의 저널리스트 에드 콘웨이(Ed Conway)는 우리가 알지 못했고 볼 수 없었던 물질이 가진 경이로운 세계로 독자들을 안내한다. 무더운 유럽의 가장 깊은 광산부터 티끌 하나 없는 대만의 반도체 공장, 칠레 아타카마 사막의 소금호수까지. 전 세계 곳곳을 탐험하는 과정 속에 인간의 새로운 미래를 가져다 줄 대체 불가능한 여섯 가지 물질의 비밀이 밝혀진다. 물질은 어떤 과정을 거쳐 놀랍도록 복잡한 제품으로 탄생할까? 여섯 가지 물질의 여정이 만들어가는 기적적인 과정과 숨겨진 사람들의 이야기를 통해 세상을 바꾸는 물질의 새로운 세계로 한걸음 더 다가갈 수 있다.', '20240308', '인플루엔셜', '\img\k992938150_2.jpg', '에드 콘웨이');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(37, '깨진 틈이 있어야 그 사이로 빛이 들어온다', 16920, '철학자들의 철학자로 불리는 니체는 자신을 지키기 위해 고독을 선택했고, 깊은 사색으로 인생의 의미를 찾아내기 위해 애썼다. 이러한 이러한 니체의 태도가 담긴 책이 바로 『깨진 틈이 있어야 그 사이로 빛이 들어온다(원제: 차라투스트라는 이렇게 말했다)』이다. 이 책에서 니체는 자신의 분신이자 주인공인 차라투스트라를 통해 여러 메시지를 전한다.', '20240311', '페이지2', '\img\k182938550_1.jpg', '프리드리히 니체');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(38, '원도', 13500, '2006년 <실천문학>으로 작품 활동을 시작한 이래 2010년 첫 장편소설인 《당신 옆을 스쳐간 그 소녀의 이름은》으로 한겨레문학상을 수상하며 본격적인 이름을 알린 지 십수 년 남짓. 처연한 비관의 세계에서 시작한 그는 2023년 이상문학상을 받으며 “등단 이후 십여 년간 한결같은 걸음걸이로 걸어온 작가의 작품 세계가 마침내 새로운 경지로 들어섰음을 보여준다.눈이 부시다”(소설가 윤대녕)라는 평을 받았다.', '20240330', '한겨레출판', '\img\k232939529_1.jpg', '최진영');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(39, '플라톤의 국가', 10000, '상식과 교양으로 읽는 고전 길잡이 <지적 대화를 위한 30분 고전> 시리즈 01 플라톤의 국가 플라톤의 "정의"와 이상국가에 대한 구상이 담겨 있는 <국가> 1부에서는 플라톤의 스승과 제자, 그들을 둘러싼 당시 상황을, 2부에서는 플라톤이 쓴 <국가>를 총3장으로 나누어 주요 내용을 간추려 소개합니다. 3부에서는 소크라테스와 플라톤의 철학이 우리에게 남긴 것이 무엇인지 살펴봅니다.', '20240529', '웅진지식하우스', '\img\e062533702_1.jpg', '박계원');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(40, 'Python Deep Learning', 39000, 'Master effective navigation of neural networks, including convolutions and transformers, to tackle computer vision and NLP tasks using Python Key Features: - Understand the theory, mathematical foun', '20231124', 'Packt Publishing', '\img\Python Deep Learning, 3_E (Understand how deep neural networks work and apply them to real-world tasks).jpg', 'Ivan Vasilev');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(41, '3D 딥러닝 with python', 26100, '이 책은 3D 딥러닝에 대해 다룬 도서입니다. 기초적이고 전반적인 내용을 학습할 수 있습니다.', '20240418', '홍릉', '\img\3D 딥러닝 with python (PyTorch3D 등을 사용하여 3D 데이터로 컴퓨터 비전 모델 설계_개발 (한국어판)).jpg', '서정용·송재숙');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(42, 'The Python Workshop', 59000, 'More than just a Python guide for beginners, The Python Workshop takes you through the full spectrum of basic to advanced topics, equipping you with the skills you need to get started with data scienc', '20200301', 'Packt Publishing', '\img\The Python Workshop.jpg', 'Andrew Bird·DR');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(43, 'The Python (파이썬 프로그래밍)', 20000, '파이썬을 배우기 위해 여러권의 책이 필요 없습니다. 파이썬에 관한 단 한권의 책을 선택해야 한다면 이 책입니다. 프로그래밍 언어와 코딩을 배우길 원하는 사람, 파이썬 애플리케이션을 만들고 싶은 사람, 머신러닝으로 데이터를 분석하고 싶은사람, 파이썬은 이 모두에게 필요합니다. 이 책은 파이썬 프로그래밍 언어의 개념을 확실히 심어줍니다.', '20181113', '부크크(Bookk)', '\img\The Python (파이썬 프로그래밍).jpg', '허진경');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(44, '비트코딩 Python', 20000, '『비트코딩 Python』은 문제은행식 코딩 문제집으로 총 516문항을 수록하였다. 또한 각 단원마다 난이도 별 연습문제로 개념을 확실하게 잡을 수 있도록 구성하였으며, 다양한 영역과 다양한 주제의 신선한 문제를 삽입하였다. 이 교재는 처음 코딩을 배우는 학생, 코딩 수업을 듣는 학생, 코딩을 빠르게 하고 싶은 학생, 코딩공부를 해도 프로그램을 작성하는 것이', '20181019', '햄큐(HAMQ)', '\img\비트코딩 Python (최초의 문제은행식 코딩문제집).jpg', '박해민');
+
+INSERT INTO PRODUCT 
+(product_id, product_name, price, detail, published_date, publisher, product_image, author) 
+VALUES
+(45, '입속 지느러미', 13500, '제2회 황금가지 타임리프 소설 공모전에서 〈오버랩 나이프, 나이프〉로 우수상을 받으며 작품 활동을 시작해 어느덧 데뷔 8년 차에 접어든 조예은 작가가 신작 소설《입속 지느러미》로 야심 차게 돌아왔다. 《입속 지느러미》는 어떤 작품보다 작가의 심도 높은 취향이 한껏 녹아 있다. 인어 이야기와 세이렌 신화를 결합해 잔혹하지만 아련하고 서글프지만 사랑스러운 서사로 독자를 새롭게 만난다.', '20240530', '한겨레출판', '\img\sdfshdh.jpg', '조예은');

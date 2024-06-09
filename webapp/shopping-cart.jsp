@@ -94,7 +94,9 @@
         %>
         <!-- 총 금액 및 선택된 항목 목록 -->
         <div class="total-price-container">
-        <h3 class="total-price-title">총 항목 개수: <span id="total-item-count"><%= itemCount %></span></h3>
+        <h3 class="total-price-title">장바구니 내 상품 개수 : <span id="total-item-count"><%= itemCount %></span></h3>
+        </div>
+        <div class="total-price-container">
             <h3 class="total-price-title">총 금액: <span id="total-price">0원</span></h3>
             <div class="selected-items-container">
             <br/>

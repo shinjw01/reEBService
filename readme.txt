@@ -1,3 +1,5 @@
+파일 위치 : 프로젝트/src/main/
+(즉, 프로젝트/src/main/java,프로젝트/src/main/webapp,프로젝트/src/main/readme.txt)
 1.webapp/sql 파일 내의 모든 뷰(반드시 뷰 먼저), 프로시저와 함수를 sqlplus에서 등록.
 2.product.csv를 db에 저장.
 3. oracle id를 바꾼다.
