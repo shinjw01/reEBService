@@ -14,7 +14,7 @@
     PreparedStatement pstmt = null;
     ResultSet myResultSet = null;
     String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
-    String dbUser = "db1912339";
+    String dbUser = "db2110423";
     String dbPasswd = "oracle";
     String dbDriver = "oracle.jdbc.driver.OracleDriver";
 

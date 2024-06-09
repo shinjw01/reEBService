@@ -31,8 +31,8 @@ body {
 }
 
 .ebs {
-    font-size: 48px;
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: bold;
     color: #000000;
     margin: 0;
 }
@@ -49,19 +49,13 @@ body {
     margin-left: 20px;
 }
 
-.child {
-    width: 100%;
-    height: 5px;
-    background-color: #7a7a7a;
-    margin: 40px 0;
-}
 
 .div1 {
     text-align: center;
-    font-size: 36px;
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: bold;
     color: #000000;
-    margin-bottom: 50px;
+    margin: 30px;
 }
 
 .div2, .div8 {
@@ -78,10 +72,6 @@ body {
     background-color: #ffffff;
 }
 
-.component-1-child {
-    height: 147px;
-    margin-bottom: 20px;
-}
 
 .div3 {
     font-size: 32px;
@@ -90,9 +80,9 @@ body {
 }
 
 .div4, .div5 {
-    font-size: 32px;
+    font-size: 14px;
     color: #000000;
-    margin-bottom: 20px;
+    margin: 10px 0px;
 }
 
 .rectangle-parent, .rectangle-group {
@@ -103,16 +93,24 @@ body {
 }
 
 .group-child, .group-inner, .group-item {
-    width: 242px;
-    height: 102px;
+    width: 120px;
+    height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 10px;
 }
 
 .group-child {
-    background-color: #bd8d8d;
+    background-color: #fff;
+    border: 1px solid #007bff;
+    color: #000;
+}
+
+.group-child a {
+    color: #000;
+	
 }
 
 .group-inner {
@@ -121,12 +119,11 @@ body {
 }
 
 .group-item {
-    background-color: #8dbd9a;
+    background-color: #007bff;
 }
 
-.div6, .detailCheck {
-    font-size: 36px;
-    color: #ffffff;
+.div6 {
+    font-size: 14px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -135,6 +132,13 @@ body {
     height: 100%;
 }
 
-.div6:hover, .detailCheck:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+.detailCheck {
+    font-size: 14px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
 }

@@ -1,14 +1,20 @@
 @charset "EUC-KR";
 
+body {
+	display: flex;
+	flex-direction: column;
+}
+
 /* 장바구니 타이틀 */
-.purchase-title {
+.shopping-cart-title {
 	padding: 20px;
+	margin-top: 20px;
 	font-size: 30px;
 	text-align: center;
 	font-weight: bold;
 }
 
-.purchase-container {
+.shopping-cart-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -17,20 +23,28 @@
 }
 
 /* 장바구니 목록 */
-.purchase-list-container {
+.cart-list-container {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 }
 
-.purchase-list {
+.cart-list {
 	display: flex;
-	border: 1px solid violet;
 	width: 500px;
 	height: 100px;
 	padding: 20px;
 	gap: 20px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	position: relative;
+}
+
+.checkbox-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .book-img > img {
@@ -45,6 +59,7 @@
 }
 
 .delete-item {
+	position: absolute;
 	right: 30px;
 	display: flex;
 	justify-content: center;
@@ -54,21 +69,31 @@
 .delete-item > button {
 	padding: 5px 10px;
 	cursor: pointer;
+	color: #0075ff;
+	background-color: #fff ;
+	border-radius: 6px;
+	border: 1px solid #0075ff;
 }
 
 /* 총 금액 및 선택된 항목 목록 */
 .total-price-container {
-	border: 1px solid rgb(255, 195, 116);
 	padding: 20px;
-	width: 300px;
+	width: 500px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between; /* Flexbox로 공간을 채우도록 설정 */
+	align-items: center;
+	justify-content: center;
 	gap: 20px;
+	font-weight: bold;
+	border: 1px solid #d9d9d9;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
 }
 
 .total-price-title {
-	font-size: 20px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .total-price-title > span {
@@ -76,12 +101,13 @@
 }
 
 .selected-items-container {
-	margin-top: 20px;
+	
 }
 
 .selected-items-container h4 {
 	margin: 0 0 10px 0;
-	font-size: 18px;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .selected-items-container ul {
@@ -95,22 +121,26 @@
 	font-size: 16px;
 }
 
-/* 결제하기 버튼 */
+/* 결제하러 가기 버튼 */
 .go-to-payment {
 	margin-top: auto; /* 버튼을 컨테이너 맨 아래로 위치시킴 */
-	text-align: center; /* 버튼을 가운데 정렬 */
-}
-
-.go-to-payment > button {
+	text-align: center;
 	padding: 10px 20px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
+	background-color: #0075ff;
+	border-radius: 6px;
+	border: 0;
 	cursor: pointer;
-	font-size: 16px;
-	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
 }
 
-.go-to-payment > button:hover {
-	background-color: #45a049;
+
+.go-to-payment:hover {
+	background-color: #0056b3;
+}
+
+.go-to-payment > a {
+	color: #fff;
+	text-decoration: none;
+	
 }

@@ -8,10 +8,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EBS | 상품리스트</title>
-        <link rel="stylesheet" href="./css/main.css" />
-    
-    <link rel="stylesheet" href="./css/book-list.css" />
     <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+	<link rel="stylesheet" href="./css/mainPage.css" />
 </head>
 <body>
     <%@include file="top.jsp"%>

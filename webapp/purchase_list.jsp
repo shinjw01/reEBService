@@ -7,7 +7,7 @@
     <title>EBS | 구매내역</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="./css/purchase_list.css" />
+    <link rel="stylesheet" type="text/css" href="./css/purchase_list.css?after" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
 </head>
 <body>
@@ -34,7 +34,6 @@ function handleRefund(orderId) {
    
       
     </div>
-    <div class="child"></div>
     <div class="div1">구매 내역</div>
     <div class="div2">
         <% 
@@ -70,7 +69,6 @@ function handleRefund(orderId) {
                     String statusName = rs.getString("status_name");
         %>
         <div class="component-1">
-            <div class="component-1-child"></div>
             <div class="div3">
                 <p class="ebs"><%= productNames %></p>
             </div>

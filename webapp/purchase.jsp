@@ -7,9 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>구매</title>
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/purchase.css" />
+<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+<link rel="stylesheet" type="text/css" href="./css/global.css" />
+<link rel="stylesheet" type="text/css" href="./css/purchase.css?after" />
 </head>
 <body>
+    <%@include file="top.jsp"%>
 <h2 class="purchase-title">구매</h2>
 <div class="purchase-container">
     <!-- 구매 내역 목록 -->
@@ -25,11 +28,6 @@
             productIds[i] = Integer.parseInt(productIdsStr[i]);
         }
 
-        out.println("<ul>");
-        for (int productId : productIds) {
-            out.println("<li>Item ID: " + productId + "</li>");
-        }
-        out.println("</ul>");
         
         // 데이터베이스 연결 정보
 
