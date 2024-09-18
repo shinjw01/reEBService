@@ -16,6 +16,7 @@
 4. [**실행 방법**](#4)
 5. [**개발 팀 소개 및 역할 분담**](#5)
 6. [**개발 기간**](#6)
+7. [**발표 자료**](#7)
 
 <br/>
 
@@ -129,3 +130,11 @@ select * from product;
 ## 📅 개발 기간
 
 2024년 5월 8일 ~ 2024년 6월 9일 (1개월)
+
+<br />
+
+<div id="7"></div>
+
+## 📢 발표 자료
+
+[🔗 EBS 서비스 발표 자료 바로가기 Click!](https://www.canva.com/design/DAGHifCc_F4/9kDUJ__Vsw6sAw0BWUrptA/edit?utm_content=DAGHifCc_F4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
