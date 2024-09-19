@@ -1,24 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*, util.*" %>
 <%
     String userID = request.getParameter("user_id");
     String userPassword = request.getParameter("password");
-    Connection myConn = null;
+    Connection myConn = DatabaseUtil.getConnection();
     PreparedStatement pstmt = null;
     ResultSet myResultSet = null;
-    String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
-    String dbUser = "db1912339";
-    String dbPasswd = "oracle";
-    String dbDriver = "oracle.jdbc.driver.OracleDriver";
-
     try {
-        // 드라이버 로드
-        Class.forName(dbDriver);
-        // 데이터베이스 연결
-        myConn = DriverManager.getConnection(dburl, dbUser, dbPasswd);
-        out.println("DB 연결 성공<br />");
-
-        // SQL 쿼리 준비
+    	// SQL 쿼리 준비
         String mySQL = "SELECT user_id, user_name, point FROM USERS WHERE user_id = ? AND password = ?";
         pstmt = myConn.prepareStatement(mySQL);
         pstmt.setString(1, userID.trim());

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*, util.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,25 +13,15 @@
         String product = (String)request.getParameter("product_id");
         
         int p_id = Integer.parseInt(product);
-        
-        // 데이터베이스 연결 정보
-        String url = "jdbc:oracle:thin:@localhost:1521:XE";
-        String user = "db1912339";
-        String password = "oracle";
 
         // 유효성 검사
         if (s_id == null || s_id.equals("")) {
             out.println("잘못된 요청입니다.");
         } else {
-            Connection conn = null;
+            Connection conn = DatabaseUtil.getConnection();
             CallableStatement cstmt = null;
 
             try {
-                // 데이터베이스 연결
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-                conn = DriverManager.getConnection(url, user, password);
-
-                
                 // PL/SQL 프로시저 호출 준비
                 String plsql = "{CALL insert_into_cart(?, ?, ?)}";
                 cstmt = conn.prepareCall(plsql);

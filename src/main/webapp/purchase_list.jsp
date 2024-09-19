@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
+<%@page import="java.sql.*, util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -49,11 +49,7 @@ function handleRefund(orderId) {
             }
 
             try {
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-                String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
-                String dbUser = "db1912339";
-                String dbPassword = "oracle";
-                conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+                conn = DatabaseUtil.getConnection();
 
                 // SQL Query
                 String sql = "SELECT h.order_id, LISTAGG(p.product_name, ' + ') WITHIN GROUP (ORDER BY p.product_name) AS product_names, SUM(p.price) AS total_price, h.status_name FROM HISTORY h JOIN PRODUCT p ON h.product_id = p.product_id WHERE h.user_id = ? GROUP BY h.order_id, h.status_name";

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*,oracle.sql.*, oracle.jdbc.*" %>
+<%@page import="java.sql.*,oracle.sql.*, oracle.jdbc.*, util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,18 +22,11 @@
         productIds[i] = Integer.parseInt(productIdsStr[i]);
     }
 
-    Connection conn = null;
+    Connection conn = DatabaseUtil.getConnection();
     CallableStatement stmt = null;
    // PreparedStatement historyStmt = null;
 
     try {
-        Class.forName("oracle.jdbc.driver.OracleDriver"); // Oracle JDBC 드라이버 로드
-        String dbURL = "jdbc:oracle:thin:@localhost:1521:xe"; // DB URL, 포트, 서비스명 수정 필요
-        String dbUser = "db1912339";
-        String dbPassword = "oracle";
-
-        conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
-        
      // ODCINUMBERLIST 생성
         ArrayDescriptor descriptor = ArrayDescriptor.createDescriptor("SYS.ODCINUMBERLIST", conn);
         ARRAY productArray = new ARRAY(descriptor, conn, productIds);
@@ -43,8 +36,6 @@
         stmt.registerOutParameter(1, Types.VARCHAR); // 반환 값
         stmt.setString(2, userId);
         stmt.setArray(3, productArray);
-
-        
 
         stmt.execute();
 

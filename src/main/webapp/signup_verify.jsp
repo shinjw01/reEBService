@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.*, util.*" %>
 
 <%
     String checkId = request.getParameter("check_id");
@@ -10,21 +10,11 @@
     String birth = request.getParameter("birth");
     String phone = request.getParameter("phone");
 
-    Connection myConn = null;
+    Connection myConn = DatabaseUtil.getConnection();
     PreparedStatement pstmt = null;
     ResultSet myResultSet = null;
-    String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
-    String dbUser = "db1912339";
-    String dbPasswd = "oracle";
-    String dbDriver = "oracle.jdbc.driver.OracleDriver";
-
     try {
-        // 드라이버 로드
-        Class.forName(dbDriver);
-        // 데이터베이스 연결
-        myConn = DriverManager.getConnection(dburl, dbUser, dbPasswd);
-
-        if ("true".equals(checkId)) {
+    	if ("true".equals(checkId)) {
             // 아이디 중복 확인 처리
             String mySQL = "SELECT COUNT(*) FROM USERS WHERE user_id = ?";
             pstmt = myConn.prepareStatement(mySQL);
