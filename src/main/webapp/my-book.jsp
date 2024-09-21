@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="util.*" %>
+<%@ page import="model.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,8 +12,8 @@
 
 <body>
 <%
-    String productId = request.getParameter("product_id");
-    Product product = null;
+String productId = request.getParameter("product_id");
+ProductDTO product = null;
     
   	//session 확인 후 login.jsp로 리다이렉트
   	String userId = null;
@@ -21,7 +21,8 @@
     if (userObject instanceof String) {
         userId = (String) userObject;
     }
-    else{%>
+    else{
+%>
     	<script>
     	alert("로그인 후 이용하세요.");
     	location.href = "login.jsp";
@@ -29,18 +30,20 @@
     <%
     }
 
-    //BasketService.isInHistory() 확인 후 없으면 list.jsp로 리다이렉트
-    if (!BasketService.isInHistory(userId, productId)){%>
+            //BasketService.isInHistory() 확인 후 없으면 list.jsp로 리다이렉트
+            if (!PurchasedProductDAO.isInHistory(userId, productId)){
+    %>
     	<script>
     	alert("잘못된 접근입니다.");
     	location.href = "main.jsp";
     </script>
-    <%}
-    //상품 정보 불러오기
-    if (productId != null && !productId.isEmpty()) {
-        product = ProductService.getProduct(productId);
+    <%
     }
-%>
+        //상품 정보 불러오기
+        if (productId != null && !productId.isEmpty()) {
+            product = ProductDAO.getProduct(productId);
+        }
+    %>
     <div class="product-details">
     	<% if (product != null) { %>
         <h1><%= product.getName() %></h1>

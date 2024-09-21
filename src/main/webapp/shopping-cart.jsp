@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, java.sql.*, javax.servlet.*, javax.servlet.http.*" %>
-<%@ page import = "util.*" %>
+<%@ page import = "model.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -21,65 +21,32 @@
     <div class="cart-list-container">
         <% 
             // 세션에서 사용자 ID 가져오기
-            String s_id = (String)session.getAttribute("user");
+            String userId = (String)session.getAttribute("user");
+            List<ProductDTO> al = BasketDAO.getBasketProducts(userId);
+            int itemCount = al.size();
+            boolean hasResults = false;
 
-            Connection conn = DatabaseUtil.getConnection();
-            Statement stmt = null;
-            ResultSet rs = null;
-            PreparedStatement pstmt = null;
-            
-            int itemCount = 0;
-
-                // 총 개수
-                String itemCountSql = "SELECT COUNT(*) AS item_count FROM BASKET WHERE user_id = ?";
-                pstmt = conn.prepareStatement(itemCountSql);
-                pstmt.setString(1, s_id);
-                rs = pstmt.executeQuery();
-
-                itemCount = 0;
-                if (rs.next()) {
-                    itemCount = rs.getInt("item_count");
-                }
-                
-                rs.close();
-                pstmt.close();
-                
-                
-             // 서브쿼리를 사용하여 장바구니 항목과 제품 정보를 가져오기
-                String sql = "SELECT product_id, product_name, price, product_image " +
-                             "FROM PRODUCT " +
-                             "WHERE product_id IN (SELECT product_id FROM BASKET WHERE user_id = ?)";
-                pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, s_id);
-                rs = pstmt.executeQuery();
-                
-                boolean hasResults = false;
-
-                // 구매 내역 목록 출력
-                while (rs.next()) {
-                	hasResults = true;
-                    String productId = rs.getString("product_id");
-                    String productTitle = rs.getString("product_name");
-                                       
+            // 구매 내역 목록 출력
+            for (ProductDTO product : al) {
         %>
 	        <div class="cart-list">
 		        <div class="select-item">
 				    <input type="checkbox" 
-				           onchange="updateSelectedItems('<%= productId %>', '<%= rs.getString("product_name") %>', '<%= rs.getString("price") %>', this.checked)">
+				           onchange="updateSelectedItems('<%= product.getId() %>', '<%= product.getName() %>', '<%= product.getPrice() %>', this.checked)">
 				</div>
 	            <div class="book-img">
 	                <img
-	                    src="./data<%= rs.getString("product_image") %>"
+	                    src="./data<%= product.getProduct_image() %>"
 	                    alt="책 이미지"
 	                />
 	            </div>
 	            <div class="book-info">
-	                <div class="book-title"><%= productTitle %></div>
-	                <div class="book-price"><%= rs.getString("price") %>원</div>
+	                <div class="book-title"><%= product.getName() %></div>
+	                <div class="book-price"><%= product.getPrice() %>원</div>
 	            </div>
 	            <div class="delete-item">
                     <form action="<%= request.getContextPath() %>/cart_delete.jsp" method="post">
-                            <input type="hidden" name="product_id" value="<%= productId %>">
+                            <input type="hidden" name="product_id" value="<%= product.getId() %>">
                             <button type="submit" class="delete-item-btn">항목 삭제</button>
                         </form>
                 </div>
@@ -87,8 +54,7 @@
 	        <% 
 		            }
                     
-                	rs.close();
-                if (!hasResults) {
+                if (itemCount == 0) {
                     out.println("<p>장바구니가 비었습니다.</p>");
                 }
         %>
@@ -112,8 +78,6 @@
 </div>
 
 <%	//session 확인
-String userId = (String) session.getAttribute("user");
-
 if (userId == null){%>
 <script type="text/javascript">
     alert("로그인 후 이용하세요.");

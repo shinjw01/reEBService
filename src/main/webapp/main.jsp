@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="util.*" %>
+<%@ page import="model.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,16 +17,16 @@
 
     <main class="book-list">
     <%
-    	String userId = null;
-    	Object userObject = session.getAttribute("user");
-    	if (userObject instanceof String) {
-        	userId = (String) userObject;
-    	}
-        	//저장프로시저 : 상품id=>주소, 상품명, 저자명, 이미지 경로=>null처리
-        List<Product> productList = ProductService.getAllProducts();
-        if (productList != null) {
-                for (Product product : productList) {
-        %>
+    String userId = null;
+            	Object userObject = session.getAttribute("user");
+            	if (userObject instanceof String) {
+                	userId = (String) userObject;
+            	}
+                	//저장프로시저 : 상품id=>주소, 상품명, 저자명, 이미지 경로=>null처리
+                List<ProductDTO> productList = ProductDAO.getAllProducts();
+                if (productList != null) {
+                        for (ProductDTO product : productList) {
+    %>
         <div class="book-container"
         data-product-id="<%= product.getId() %>">
             <div class="click-to-link">
@@ -42,10 +42,14 @@
                     <div class="cart-btn">
                     <% if (userId == null) {%>
                         <button class="cart-btn" disabled>로그인 후 이용</button>
-                    <% } 
-                       else if (BasketService.isInHistory(userId, product.getId())) { %>
+                    <%
+                    } 
+                                                               else if (PurchasedProductDAO.isInHistory(userId, product.getId())) {
+                    %>
                         <button class="cart-btn" disabled>구매 완료</button>
-                       <% } else if (BasketService.isInBasket(userId, product.getId())) { %>
+                       <%
+                       } else if (BasketDAO.isInBasket(userId, product.getId())) {
+                       %>
                         <button class="cart-btn" disabled>장바구니에 있음</button>
                        <% } else { %>
                         <button class="cart-btn add-to-cart-btn" data-action="add">장바구니 담기</button>

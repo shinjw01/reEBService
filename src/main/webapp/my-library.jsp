@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="util.PurchasedProduct" %>
-<%@ page import="util.ProductService" %>
+<%@ page import="model.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,25 +15,30 @@
 </head>
 <body>
 <%@include file="top.jsp"%>
-<%	//session 확인
+<%
+//session 확인
 String userId = (String) session.getAttribute("user");
 
-if (userId == null){%>
+if (userId == null){
+%>
 <script type="text/javascript">
     alert("로그인 후 이용하세요.");
     window.location.href = "login.jsp";
 </script>
-<%} else{%>
+<%
+} else{
+%>
     <h2 class="my-library-title">나의 서재</h2>
     <p class="my-library-description">구매한 도서 목록을 확인해보세요</p>
 
     <!-- 도서 리스트 (추후 리팩터링) -->
     <main class="book-list">
-    <%//저장프로시저 : 상품id=>주소, 상품명, 저자명, 이미지 경로=>null처리
-    	List<PurchasedProduct> productList = ProductService.getUserProducts(userId);
-        if (productList != null ) {
-        	for (PurchasedProduct product : productList) {
-        %>
+    <%
+    //저장프로시저 : 상품id=>주소, 상품명, 저자명, 이미지 경로=>null처리
+            	List<PurchasedProductDTO> productList = PurchasedProductDAO.getUserProducts(userId);
+                if (productList != null ) {
+                	for (PurchasedProductDTO product : productList) {
+    %>
             <div class="book-container"
             data-product-id="<%= product.getId() %>">
                 <div class="purchase-date">

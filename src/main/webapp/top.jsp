@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="javax.servlet.http.*, javax.servlet.*" %>
-<%@ page import="util.DatabaseUtil"%>
+<%@ page import="model.DatabaseUtil"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="ko">

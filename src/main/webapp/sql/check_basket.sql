@@ -1,33 +1,34 @@
-CREATE OR REPLACE PROCEDURE check_basket(
-    u_id IN VARCHAR2,
-    p_id IN NUMBER,
-    isInBasket OUT NUMBER
-)
-IS
-    -- 파라미터를 사용하는 커서 선언
-    CURSOR basket_cursor (c_user_id VARCHAR2, c_product_id NUMBER) IS
-        SELECT 1
-        FROM BASKET
-        WHERE user_id = c_user_id AND product_id = c_product_id;
-    v_dummy NUMBER;
-BEGIN
-    -- 커서를 열고 파라미터 값을 전달
-    OPEN basket_cursor(u_id, p_id);
-    FETCH basket_cursor INTO v_dummy;
+DELIMITER $$
 
-    -- 커서 상태에 따라 isInBasket 값을 설정
-    IF basket_cursor%FOUND THEN
-        isInBasket := 1;
+CREATE PROCEDURE check_basket(
+    IN u_id VARCHAR(64),
+    IN p_id INT,
+    OUT isInBasket INT
+)
+BEGIN
+    DECLARE v_count INT;
+
+    -- 예외 처리 핸들러
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        -- 예외 발생 시 처리
+        SET isInBasket = 0;
+    END;
+
+    -- 장바구니에 주어진 유저 ID와 제품 ID가 존재하는지 확인
+    SELECT COUNT(*)
+    INTO v_count
+    FROM BASKET
+    WHERE user_id = u_id
+    AND product_id = p_id;
+
+    -- 존재 여부에 따라 isInBasket 값 설정
+    IF v_count > 0 THEN
+        SET isInBasket = 1;  -- 장바구니에 존재
     ELSE
-        isInBasket := 0;
+        SET isInBasket = 0;  -- 장바구니에 없음
     END IF;
 
-    -- 커서를 닫음
-    CLOSE basket_cursor;
-EXCEPTION
-    WHEN OTHERS THEN
-        -- 예외 처리
-        DBMS_OUTPUT.PUT_LINE('ERR MESSAGE: ' || SQLERRM);
-        isInBasket := 0;
-END;
-/
+END $$
+
+DELIMITER ;

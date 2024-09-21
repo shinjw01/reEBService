@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*,oracle.sql.*, oracle.jdbc.*, util.*" %>
+<%@page import="java.sql.*,model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,57 +16,12 @@
         return;
     }
 
-    String[] productIdsStr = itemsParam.split(",");
-    int[] productIds = new int[productIdsStr.length];
-    for (int i = 0; i < productIdsStr.length; i++) {
-        productIds[i] = Integer.parseInt(productIdsStr[i]);
-    }
-
-    Connection conn = DatabaseUtil.getConnection();
-    CallableStatement stmt = null;
-   // PreparedStatement historyStmt = null;
-
-    try {
-     // ODCINUMBERLIST 생성
-        ArrayDescriptor descriptor = ArrayDescriptor.createDescriptor("SYS.ODCINUMBERLIST", conn);
-        ARRAY productArray = new ARRAY(descriptor, conn, productIds);
-
-        String sql = "{? = call purchase_products(?, ?)}";
-        stmt = conn.prepareCall(sql);
-        stmt.registerOutParameter(1, Types.VARCHAR); // 반환 값
-        stmt.setString(2, userId);
-        stmt.setArray(3, productArray);
-
-        stmt.execute();
-
-        String resultMessage = stmt.getString(1);
-        System.out.println(resultMessage);
-        
-        String query = "SELECT point FROM USERS WHERE user_id = ?";
-    	PreparedStatement pstmt = conn.prepareStatement(query);
-    	pstmt.setString(1, (String)session.getAttribute("user"));
-    	ResultSet rs = pstmt.executeQuery();
-    	if (rs.next()){
-    		session.setAttribute("points", rs.getString("point"));
-    	}
-        
-
-    } catch (SQLException se) {
-        out.println("SQL 오류: " + se.getMessage());
-    } catch (Exception e) {
-        out.println("오류: " + e.getMessage());
-    } finally {
-        try {
-        	//if (historyStmt != null) historyStmt.close();
-            if (stmt != null) stmt.close();
-            if (conn != null) conn.close();
-        } catch (SQLException se) {
-            out.println("SQL 오류: " + se.getMessage());
-        }
-    }
+    String[] productIds = itemsParam.split(",");
+    String resultMessage = ProductDAO.purchaseProduct(userId, productIds);
+    session.setAttribute("points", UserDAO.getUserPoint(userId));
 %>
 <script>
-    alert("구매완료되었습니다.");
+    alert('<%= resultMessage%>');
     location.href="purchase_list.jsp";
 </script>
 </body>

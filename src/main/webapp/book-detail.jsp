@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="util.*" %>
+<%@ page import="model.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +19,9 @@ if (userObject instanceof String) {
     userId = (String) userObject;
 }
 String productId = request.getParameter("product_id");
-Product product = null;
+ProductDTO product = null;
 if (productId != null && !productId.isEmpty()) {
-    product = ProductService.getProduct(productId);
+    product = ProductDAO.getProduct(productId);
 }
 
 if (product == null) {
@@ -46,9 +46,13 @@ if (product == null) {
                 <button class="add-to-cart-button" data-product-id="<%= product.getId() %>" data-user-id="<%= userId %>">
                 <% if (userId == null) { %>
                     <p>로그인 후 이용</p>
-                <% } else if (BasketService.isInHistory(userId, product.getId())) { %>
+                <%
+                } else if (PurchasedProductDAO.isInHistory(userId, product.getId())) {
+                %>
                     <p>구매 완료</p>
-                <% } else if (BasketService.isInBasket(userId, product.getId())) { %>
+                <%
+                } else if (BasketDAO.isInBasket(userId, product.getId())) {
+                %>
                     <img
                         src="<%= request.getContextPath() %>/src/full_basket.png"
                         alt="shopping-cart-icon"

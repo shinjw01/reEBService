@@ -1,15 +1,15 @@
-package util;
+package model;
 
 
-public class Product {
-	private String id;
-    private String name;
-    private double price;
-    private String detail;
-    private String published_date;
-    private String publisher;
-    private String product_image;
-    private String author;
+public class ProductDTO {
+	private String id = null;
+    private String name = null;
+    private double price = Integer.MIN_VALUE;
+    private String detail = null;
+    private String published_date = null;
+    private String publisher = null;
+    private String product_image = null;
+    private String author = null;
 
     // Getters and setters
     public String getId() {
@@ -74,6 +74,15 @@ public class Product {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+	
+	public void set(ProductDTO p) {
+		if(this.id== null) this.id = p.id;
+		if(this.name== null) this.name = p.name;
+		if(this.price == Integer.MIN_VALUE) this.price = p.price;
+		if(this.detail== null) this.detail = p.detail;
+		if(this.published_date== null) this.published_date = p.published_date;
+		if(this.publisher== null) this.publisher = p.publisher;
 	}
 }
 

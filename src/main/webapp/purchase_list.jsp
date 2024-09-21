@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*, util.*"%>
+<%@page import="java.sql.*,model.*, java.util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -37,32 +37,25 @@ function handleRefund(orderId) {
     <div class="div1">구매 내역</div>
     <div class="div2">
         <% 
-            // Database connection setup
-            Connection conn = null;
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
             String userId = (String) session.getAttribute("user");
-            //String userId = "JH1234"; // This should be set from session or another method
             if (userId == null) {
                 out.println("<p>로그인이 필요합니다.</p>");
                 return;
             }
-
-            try {
-                conn = DatabaseUtil.getConnection();
-
-                // SQL Query
-                String sql = "SELECT h.order_id, LISTAGG(p.product_name, ' + ') WITHIN GROUP (ORDER BY p.product_name) AS product_names, SUM(p.price) AS total_price, h.status_name FROM HISTORY h JOIN PRODUCT p ON h.product_id = p.product_id WHERE h.user_id = ? GROUP BY h.order_id, h.status_name";
-                stmt = conn.prepareStatement(sql);
-                stmt.setString(1, userId);
-                rs = stmt.executeQuery();
-
-                // Displaying each purchase
-                while (rs.next()) {
-                	int orderId = rs.getInt("order_id");
-                    String productNames = rs.getString("product_names");
-                    int totalPrice = rs.getInt("total_price");
-                    String statusName = rs.getString("status_name");
+                List<List<PurchasedProductDTO>> history = PurchasedProductDAO.getHistoryByOrderId(userId);
+                for (List<PurchasedProductDTO> list : history){
+                	StringBuilder productNames = new StringBuilder();
+                	String statusName = list.get(0).getStatus_name();
+                	int totalPrice = 0;
+                	String orderId = list.get(0).getOrder_id();
+                	for(PurchasedProductDTO product : list){
+                		//정보 받아오기
+                		ProductDTO tmp = ProductDAO.getProduct(product.getId());
+                		if(!productNames.isEmpty()) productNames.append("+");
+                		productNames.append(tmp.getName());
+                		totalPrice += tmp.getPrice();
+                	}
+                	
         %>
         <div class="component-1">
             <div class="div3">
@@ -89,15 +82,6 @@ function handleRefund(orderId) {
         </div>
         <% 
                 }
-            } catch (SQLException se) {
-                out.println("SQL 오류: " + se.getMessage());
-            } catch (Exception e) {
-                out.println("오류: " + e.getMessage());
-            } finally {
-                if (rs != null) rs.close();
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
-            }
         %>
    
 </div>

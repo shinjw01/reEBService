@@ -1,40 +1,42 @@
---%ROWTYPE
-CREATE OR REPLACE PROCEDURE get_product (
-    p_id IN NUMBER,
-    p_product_id OUT product.product_id%TYPE,
-    p_product_name OUT product.product_name%TYPE,
-    p_price OUT product.price%TYPE,
-    p_detail OUT product.detail%TYPE,
-    p_published_date OUT product.published_date%TYPE,
-    p_publisher OUT product.publisher%TYPE,
-    p_product_image OUT product.product_image%TYPE,
-    p_author OUT product.author%TYPE
-) IS
-    v_product product%ROWTYPE;
+DELIMITER $$
+
+CREATE PROCEDURE get_product (
+    IN p_id INT,
+    OUT p_product_id INT,
+    OUT p_product_name VARCHAR(300),
+    OUT p_price DECIMAL(11, 2),
+    OUT p_detail VARCHAR(600),
+    OUT p_published_date DATE,
+    OUT p_publisher VARCHAR(90),
+    OUT p_product_image VARCHAR(1000),
+    OUT p_author VARCHAR(90)
+)
 BEGIN
-    SELECT product_id, product_name, price, detail, published_date, publisher, 
-           NVL(product_image, '/img/No_Image.jpg'), author
-    INTO v_product
+    DECLARE no_data_found BOOLEAN DEFAULT FALSE;
+
+    -- 예외 처리를 위해 HANDLER 설정
+    DECLARE CONTINUE HANDLER FOR NOT FOUND 
+    SET no_data_found = TRUE;
+
+    -- 데이터 조회
+    SELECT product_id, product_name, price, detail, published_date, publisher,
+           IFNULL(product_image, '/img/No_Image.jpg'), author
+    INTO p_product_id, p_product_name, p_price, p_detail, p_published_date, 
+         p_publisher, p_product_image, p_author
     FROM product
     WHERE product_id = p_id;
 
-    p_product_id := v_product.product_id;
-    p_product_name := v_product.product_name;
-    p_price := v_product.price;
-    p_detail := v_product.detail;
-    p_published_date := v_product.published_date;
-    p_publisher := v_product.publisher;
-    p_product_image := v_product.product_image;
-    p_author := v_product.author;
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        p_product_id := 0;
-        p_product_name := NULL;
-        p_price := NULL;
-        p_detail := NULL;
-        p_published_date := NULL;
-        p_publisher := NULL;
-        p_product_image := NULL;
-        p_author := NULL;
-END;
-/
+    -- 예외 발생 시 처리
+    IF no_data_found THEN
+        SET p_product_id = 0;
+        SET p_product_name = NULL;
+        SET p_price = NULL;
+        SET p_detail = NULL;
+        SET p_published_date = NULL;
+        SET p_publisher = NULL;
+        SET p_product_image = NULL;
+        SET p_author = NULL;
+    END IF;
+END $$
+
+DELIMITER ;

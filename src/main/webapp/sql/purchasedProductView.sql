@@ -2,7 +2,7 @@ CREATE OR REPLACE VIEW purchased_product AS
 SELECT 
     P.product_id, 
     P.product_name, 
-    NVL(P.product_image, '/img/No_Image.jpg') AS product_image, 
+    IFNULL(P.product_image, '/img/No_Image.jpg') AS product_image,  -- NVL 대신 IFNULL 사용
     P.author, 
     H.created_date,
     H.user_id
