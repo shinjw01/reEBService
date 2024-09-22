@@ -63,14 +63,8 @@
 
 2. `product.csv`를 db에 저장.
 
-3. oracle id 수정
-
-- java/util/DatabaseUtil 파일
-- webapp/cart_delete.jsp
-- cart_insert.jsp,login_verify.jsp
-- purchase_list.jsp
-- purchase_process.jsp
-- refund.jsp
+3.  MySQL id 수정
+- java/model/DatabaseUtil 파일
 
 4. `webapp/main.jsp`에서 실행 시작.
 
@@ -99,7 +93,7 @@ author              CHAR
 2. CMD에서 sqlldr 실행
 
 ```
-sqlldr userid=오라클ID/오라클password control='product_control.ctl 절대경로'
+sqlldr userid=MySQLID/MySQLpassword control='product_control.ctl 절대경로'
 ```
 
 3. sqlplus에서 데이터를 확인한다.
@@ -134,7 +128,8 @@ select * from product;
 ## 📅 리팩토링 기간
 
 2024년 8월 8일 ~ 2024년 8월 15일  (Model, View, Controller로 리팩토링)
-2024년 9월 18일 ~ 2024년 9월 22일 (Front Controller 방식으로 전환)
+<br />
+2024년 9월 18일 ~ 2024년 9월 22일 (MySQL로 전환, Front Controller로 리팩토링)
 <br />
 
 <div id="7"></div>
