@@ -131,6 +131,10 @@ select * from product;
 
 2024년 5월 8일 ~ 2024년 6월 9일 (1개월)
 
+## 📅 리팩토링 기간
+
+2024년 8월 8일 ~ 2024년 8월 15일  (Model, View, Controller로 리팩토링)
+2024년 9월 18일 ~ 2024년 9월 22일 (Front Controller 방식으로 전환)
 <br />
 
 <div id="7"></div>
