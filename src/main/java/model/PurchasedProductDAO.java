@@ -62,10 +62,7 @@ public class PurchasedProductDAO {
     }
     //구매id 별로 history 조회
     public static List<List<PurchasedProductDTO>> getHistoryByOrderId(String userId) {
-        String sql = "SELECT h.order_id, h.status_name, p.product_id, p.product_name " // 필요한 컬럼들을 모두 선택
-                   + "FROM HISTORY h JOIN PRODUCT p ON h.product_id = p.product_id "
-                   + "WHERE h.user_id = ? "
-                   + "ORDER BY h.order_id"; // order_id 순으로 정렬
+        String sql = "SELECT h.order_id, h.status_name, p.product_id, p.product_name, p.price FROM HISTORY h JOIN PRODUCT p ON h.product_id = p.product_id WHERE h.user_id = ? ORDER BY h.order_id"; // order_id 순으로 정렬
 
         List<List<PurchasedProductDTO>> orderList = new ArrayList<>(); // 최종 반환 리스트
         List<PurchasedProductDTO> currentOrder = null; // 현재 order_id에 해당하는 상품 리스트
@@ -84,7 +81,6 @@ public class PurchasedProductDAO {
                 // 새로운 주문번호가 나타나면 새로운 리스트를 생성
                 if (orderId != currentOrderId) {
                     if (currentOrder != null) {
-                        // 이전 주문번호에 대한 리스트를 최종 리스트에 추가
                         orderList.add(currentOrder);
                     }
                     // 새 리스트 생성
@@ -98,7 +94,7 @@ public class PurchasedProductDAO {
                 product.setStatus_name(status);
                 product.setId(rs.getString("product_id"));
                 product.setName(rs.getString("product_name"));
-
+                product.setPrice(rs.getDouble("price"));
                 currentOrder.add(product);
             }
 
@@ -118,18 +114,11 @@ public class PurchasedProductDAO {
         String sql = "{call refund_products(?, ?, ?)}"; // OUT 파라미터 추가
         try (Connection connection = DatabaseUtil.getConnection();
              CallableStatement cstmt = connection.prepareCall(sql)) {
-
-            // IN 파라미터 설정
             cstmt.setString(1, userId);
             cstmt.setInt(2, Integer.parseInt(orderId));
-            
-            // OUT 파라미터 설정
-            cstmt.registerOutParameter(3, Types.VARCHAR); // OUT 파라미터로 result_message 등록
-
-            // 프로시저 실행
+            cstmt.registerOutParameter(3, Types.VARCHAR);
             cstmt.execute();
 
-            // OUT 파라미터에서 result_message 값을 가져옴
             String resultMessage = cstmt.getString(3);
 
             return resultMessage;

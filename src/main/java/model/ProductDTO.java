@@ -10,6 +10,8 @@ public class ProductDTO {
     private String publisher = null;
     private String product_image = null;
     private String author = null;
+    private boolean purchased = false;
+    private boolean inBasket = false;
 
     // Getters and setters
     public String getId() {
@@ -76,6 +78,22 @@ public class ProductDTO {
 		this.author = author;
 	}
 	
+	public boolean isPurchased() {
+		return purchased;
+	}
+
+	public void setPurchased(boolean purchased) {
+		this.purchased = purchased;
+	}
+
+	public boolean isInBasket() {
+		return inBasket;
+	}
+
+	public void setInBasket(boolean inBasket) {
+		this.inBasket = inBasket;
+	}
+	
 	public void set(ProductDTO p) {
 		if(this.id== null) this.id = p.id;
 		if(this.name== null) this.name = p.name;
@@ -84,5 +102,8 @@ public class ProductDTO {
 		if(this.published_date== null) this.published_date = p.published_date;
 		if(this.publisher== null) this.publisher = p.publisher;
 	}
+
+
+
 }
 

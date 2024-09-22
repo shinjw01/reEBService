@@ -17,7 +17,7 @@
         <div class="login-container">
             <form method="post" action="login_verify.jsp">
                 <div class="login-content">
-                    <input type="text" name="user_id" placeholder="아이디를 입력해 주세요" required />
+                    <input type="text" name="userId" placeholder="아이디를 입력해 주세요" required />
                 </div>
                 <div class="login-content">
                     <input type="password" name="password" placeholder="비밀번호를 입력해 주세요" required />

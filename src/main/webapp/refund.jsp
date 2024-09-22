@@ -8,13 +8,13 @@
 </head>
 <body>
 <%
-    String userId = (String) session.getAttribute("user");
+    String userId = (String) session.getAttribute("userId");
     String orderId = request.getParameter("orderId");
     out.println(PurchasedProductDAO.updateStatusRefund(userId, orderId));
-    session.setAttribute("points", UserDAO.getUserPoint(userId));
+    session.setAttribute("point", UserDAO.getUserPoint(userId));
 %>
 <script>
-    location.href="purchase_list.jsp";
+    location.href="purchase_list.do?action=purchasedList";
 </script>
 </body>
 </html>

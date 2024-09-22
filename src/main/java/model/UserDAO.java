@@ -53,4 +53,25 @@ public class UserDAO {
 		}
 		return result;
 	}
+	
+	public static UserDTO getUserDTO(String userId, String password) {
+		String sql = "SELECT user_id, user_name, point FROM USERS WHERE user_id = ? AND password = ?";
+		try(Connection connection = DatabaseUtil.getConnection();
+				PreparedStatement pstmt = connection.prepareStatement(sql)){
+			pstmt.setString(1, userId);
+	        pstmt.setString(2, password);
+	        ResultSet rs = pstmt.executeQuery();
+	        if(rs.next()) {
+	        	UserDTO user = new UserDTO();
+	        	user.setId(userId);
+	        	user.setName(rs.getString("user_name"));
+	        	user.setPoint(rs.getInt("point"));
+	        	return user;
+	        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

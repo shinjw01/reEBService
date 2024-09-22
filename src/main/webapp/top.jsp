@@ -15,17 +15,17 @@
     <table>
         <tr>
             <td>
-                <a href="main.jsp" class="logo-link"><img src="src/logo.png" alt="logo" class="logo" /></a>
-                <b><a href="my-library.jsp"><p>나의 서재</p></a></b>
+                <a href="main.do?action=productList" class="logo-link"><img src="src/logo.png" alt="logo" class="logo" /></a>
+                <b><a href="my_library.do?action=purchasedProductList"><p>나의 서재</p></a></b>
                 <span class="separator">|</span>
-                <b><a href="shopping-cart.jsp"><p>장바구니</p></a></b>
+                <b><a href="shopping_cart.do?action=basket"><p>장바구니</p></a></b>
                 <span class="separator">|</span>
-                <b><a href="purchase_list.jsp"><p>구매내역</p></a></b>
+                <b><a href="purchase_list.do?action=purchasedList"><p>구매내역</p></a></b>
                 <span class="separator">|</span>
                 <b><a id="login-link" href="#" onclick="loginClicked()"><p><%= session.getAttribute("isLoggedIn") != null ? "로그아웃" : "로그인" %></p></a></b>
                 <div class="member-info">
                     <span class="message" id="login-message"><%= session.getAttribute("isLoggedIn") != null ? session.getAttribute("userName") + "님, 환영합니다!" : "로그인을 해주세요" %></span>
-                    <span class="points" id="points-message"><%= session.getAttribute("isLoggedIn") != null ? session.getAttribute("points") + " 포인트 보유" : "" %></span>
+                    <span class="points" id="points-message"><%= session.getAttribute("isLoggedIn") != null ? session.getAttribute("point") + " 포인트 보유" : "" %></span>
                 </div>
             </td>
         </tr>
@@ -52,7 +52,7 @@
                 loginLink.innerHTML = "로그아웃";
                 loginLink.href = "#";
                 loginMessage.innerHTML = "<%= session.getAttribute("userName") %>님, 환영합니다!";
-                pointsMessage.innerHTML = "<%= session.getAttribute("points") %> 포인트 보유";
+                pointsMessage.innerHTML = "<%= session.getAttribute("point") %> 포인트 보유";
             } else {
                 loginLink.innerHTML = "로그인";
                 loginLink.href = "login.jsp";

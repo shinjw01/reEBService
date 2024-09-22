@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="model.*" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,21 +18,16 @@
 
     <main class="book-list">
     <%
-    String userId = null;
-            	Object userObject = session.getAttribute("user");
-            	if (userObject instanceof String) {
-                	userId = (String) userObject;
-            	}
-                	//저장프로시저 : 상품id=>주소, 상품명, 저자명, 이미지 경로=>null처리
-                List<ProductDTO> productList = ProductDAO.getAllProducts();
-                if (productList != null) {
-                        for (ProductDTO product : productList) {
+        List<ProductDTO> productList = (List<ProductDTO>) request.getAttribute("productList");
+        String userId = (String) session.getAttribute("userId");
+
+        if (productList != null) {
+            for (ProductDTO product : productList) {
     %>
-        <div class="book-container"
-        data-product-id="<%= product.getId() %>">
+        <div class="book-container" data-product-id="<%= product.getId() %>">
             <div class="click-to-link">
                 <div class="book-image">
-                    <img src="./data<%=product.getProduct_image()%>" alt="책 이미지" />
+                    <img src="./data<%= product.getProduct_image() %>" alt="책 이미지" />
                 </div>
                 <h3 class="title"><%= product.getName() %></h3>
                 <p class="author"><%= product.getAuthor() %></p>
@@ -40,32 +36,27 @@
                         <button class="detail-view-link">상세보기</button>
                     </div>
                     <div class="cart-btn">
-                    <% if (userId == null) {%>
-                        <button class="cart-btn" disabled>로그인 후 이용</button>
-                    <%
-                    } 
-                                                               else if (PurchasedProductDAO.isInHistory(userId, product.getId())) {
-                    %>
-                        <button class="cart-btn" disabled>구매 완료</button>
-                       <%
-                       } else if (BasketDAO.isInBasket(userId, product.getId())) {
-                       %>
-                        <button class="cart-btn" disabled>장바구니에 있음</button>
-                       <% } else { %>
-                        <button class="cart-btn add-to-cart-btn" data-action="add">장바구니 담기</button>
-                       <% } %>
+                        <% if (userId == null) { %>
+                            <button class="cart-btn" disabled>로그인 후 이용</button>
+                        <% } else if (product.isPurchased()) { %>
+                            <button class="cart-btn" disabled>구매 완료</button>
+                        <% } else if (product.isInBasket()) { %>
+                            <button class="cart-btn" disabled>장바구니에 있음</button>
+                        <% } else { %>
+                            <button class="cart-btn add-to-cart-btn" data-action="add">장바구니 담기</button>
+                        <% } %>
                     </div>
                 </div>
             </div>
         </div>
-
-                <%}
-        } else {
-        %>
-                <div>No products available</div>
-        <%
+    <%
             }
-        %>
+        } else {
+    %>
+        <div>No products available</div>
+    <%
+        }
+    %>
     </main>
 
     <!-- 알림창 -->
@@ -92,10 +83,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const productId = bookContainer.dataset.productId;
             const action = button.dataset.action;
 
-            const url = 'cart_insert.jsp';
+            const url = 'cart_insert.do?action=basketInsertion';
             const formData = new URLSearchParams();
-            formData.append('user_id', '<%= userId %>');
-            formData.append('product_id', productId);
+            formData.append('userId', '<%= userId %>');
+            formData.append('productId', productId);
 
             try {
                 const response = await fetch(url, {
@@ -136,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             const bookContainer = button.closest('.book-container');
             const productId = bookContainer.dataset.productId;
-            window.location.href = './book-detail.jsp?product_id=' + productId;
+            window.location.href = './book_detail.do?action=product&productId=' + productId;
         });
     });
 });

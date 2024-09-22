@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*,model.*, java.util.*"%>
+<%@ page import="model.*, java.util.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -31,59 +31,54 @@ function handleRefund(orderId) {
 }
 </script>
 <div class="div">
-   
-      
-    </div>
-    <div class="div1">구매 내역</div>
-    <div class="div2">
-        <% 
-            String userId = (String) session.getAttribute("user");
-            if (userId == null) {
-                out.println("<p>로그인이 필요합니다.</p>");
-                return;
-            }
-                List<List<PurchasedProductDTO>> history = PurchasedProductDAO.getHistoryByOrderId(userId);
-                for (List<PurchasedProductDTO> list : history){
-                	StringBuilder productNames = new StringBuilder();
-                	String statusName = list.get(0).getStatus_name();
-                	int totalPrice = 0;
-                	String orderId = list.get(0).getOrder_id();
-                	for(PurchasedProductDTO product : list){
-                		//정보 받아오기
-                		ProductDTO tmp = ProductDAO.getProduct(product.getId());
-                		if(!productNames.isEmpty()) productNames.append("+");
-                		productNames.append(tmp.getName());
-                		totalPrice += tmp.getPrice();
-                	}
-                	
-        %>
-        <div class="component-1">
-            <div class="div3">
-                <p class="ebs"><%= productNames %></p>
-            </div>
-            <div class="div4">총 가격: <%= totalPrice %>원</div>
-            <div class="div5">상태: <%= statusName %></div>
-            <div class="rectangle-parent">
-                <div class="group-child">
-						<button 
-    						id="refund-button-<%= orderId %>" 
-    						<%= "구매".equals(statusName) ? "onclick=\"handleRefund(" + orderId + ");\"" : "disabled" %> class="div6">
-    						<%= "구매".equals(statusName) ? "환불 요청" : "환불 완료" %>
-						</button>
-                </div>
-                <% if ("구매".equals(statusName)) {%>
-                <div class="group-item">
-                    <form method="post" action="my-library.jsp">
-                        <button class="detailCheck">상세 확인</button>
-                    </form>
-                </div>
-                <%} %>
-            </div>
-        </div>
-        <% 
+</div>
+<div class="div1">구매 내역</div>
+<div class="div2">
+    <% 
+        List<List<PurchasedProductDTO>> history = (List<List<PurchasedProductDTO>>) request.getAttribute("purchaseHistory");
+        
+        if (history != null && !history.isEmpty()) {
+            for (List<PurchasedProductDTO> list : history) {
+                StringBuilder productNames = new StringBuilder();
+                String statusName = list.get(0).getStatus_name();
+                int totalPrice = 0;
+                String orderId = list.get(0).getOrder_id();
+                for (PurchasedProductDTO product : list) {
+                    if (productNames.length() > 0) productNames.append("+");
+                    productNames.append(product.getName());
+                    totalPrice += product.getPrice();
                 }
-        %>
-   
+    %>
+    <div class="component-1">
+        <div class="div3">
+            <p class="ebs"><%= productNames %></p>
+        </div>
+        <div class="div4">총 가격: <%= totalPrice %>원</div>
+        <div class="div5">상태: <%= statusName %></div>
+        <div class="rectangle-parent">
+            <div class="group-child">
+                <button 
+                    id="refund-button-<%= orderId %>" 
+                    <%= "구매".equals(statusName) ? "onclick=\"handleRefund('" + orderId + "');\"" : "disabled" %> 
+                    class="div6">
+                    <%= "구매".equals(statusName) ? "환불 요청" : "환불 완료" %>
+                </button>
+            </div>
+            <% if ("구매".equals(statusName)) { %>
+            <div class="group-item">
+                <form method="post" action="my_library.do?action=purchasedProductList">
+                    <button class="detailCheck">상세 확인</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <% 
+            }
+        } else { 
+            out.println("<p>구매 내역이 없습니다.</p>");
+        }
+    %>
 </div>
 </body>
 </html>
