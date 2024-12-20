@@ -110,10 +110,10 @@ select * from product;
 
 |                                               이미지                                                |                                           이름                                           | 개발 내용                                                                                        |
 | :-------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------- |
-| <img src="https://avatars.githubusercontent.com/u/79428775?v=4" alt="김지현 프로필" width="80px"/>  |   <a href="https://github.com/jh-01" target="_blank">김지현<br>(소프트웨어학부20)</a>    | [FE, BE]장바구니 <br> [FE]결제화면                                                               |
-| <img src="https://avatars.githubusercontent.com/u/128569095?v=4" alt="류미성 프로필" width="80px"/> | <a href="https://github.com/misung-dev" target="_blank">류미성<br>(소프트웨어학부21)</a> | [FE, BE] 로그인, 로그아웃, 회원가입 <br> [FE] 상단 메뉴바, 나의 서재, 상품 리스트, 상품 상세정보 |
-| <img src="https://avatars.githubusercontent.com/u/69078515?v=4" alt="박지영 프로필" width="80px"/>  |      <a href="https://github.com/pjy2163" target="_blank">박지영<br>(화학과20)</a>       | [FE, BE] 환불, 구매 내역 조회<br> [BE] 결제화면                                                  |
-| <img src="https://avatars.githubusercontent.com/u/65654552?v=4" alt="신지우 프로필" width="80px"/>  |  <a href="https://github.com/shinjw01" target="_blank">신지우<br>(소프트웨어학부19)</a>  | [FE, BE] 책 읽기 화면 <br> [BE] 상품 리스트, 상품 상세정보 화면, 나의 서재                       |
+| <img src="https://avatars.githubusercontent.com/u/79428775?v=4" alt="김지현 프로필" width="80px"/>  |   <a href="https://github.com/jh-01" target="_blank">김지현<br></a>    | [FE, BE]장바구니 <br> [FE]결제화면                                                               |
+| <img src="https://avatars.githubusercontent.com/u/128569095?v=4" alt="류미성 프로필" width="80px"/> | <a href="https://github.com/misung-dev" target="_blank">류미성<br></a> | [FE, BE] 로그인, 로그아웃, 회원가입 <br> [FE] 상단 메뉴바, 나의 서재, 상품 리스트, 상품 상세정보 |
+| <img src="https://avatars.githubusercontent.com/u/69078515?v=4" alt="박지영 프로필" width="80px"/>  |      <a href="https://github.com/pjy2163" target="_blank">박지영<br></a>       | [FE, BE] 환불, 구매 내역 조회<br> [BE] 결제화면                                                  |
+| <img src="https://avatars.githubusercontent.com/u/65654552?v=4" alt="신지우 프로필" width="80px"/>  |  <a href="https://github.com/shinjw01" target="_blank">신지우<br></a>  | [FE, BE] 책 읽기 화면 <br> [BE] 상품 리스트, 상품 상세정보 화면, 나의 서재                       |
 
 <br />
 
