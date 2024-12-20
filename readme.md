@@ -133,7 +133,3 @@ select * from product;
 <br />
 
 <div id="7"></div>
-
-## 📢 발표 자료
-
-[🔗 EBS 서비스 발표 자료 바로가기 Click!](https://www.canva.com/design/DAGHifCc_F4/9kDUJ__Vsw6sAw0BWUrptA/edit?utm_content=DAGHifCc_F4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
